@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naatangu Prix (NTP) — Prix Transparent, Prix Juste</title>
+<meta name="description" content="La première plateforme numérique tripartite connectant l'État, les commerçants et les citoyens autour du prix juste. SMSI 2026 — UIT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#006B30;--g2:#009A44;--g3:#00C85A;
+  --gold:#F5A623;--gold2:#FFD27F;
+  --red:#C0392B;--red2:#E74C3C;
+  --navy:#0A1628;--navy2:#0F2040;--navy3:#162340;
+  --white:#FFFFFF;--off:#F8F6F1;--off2:#F0EEE9;
+  --text:#1A1A2E;--muted:#6B7280;--border:rgba(0,107,48,.12);
+  --fd:'Playfair Display',Georgia,serif;
+  --fb:'Outfit',sans-serif;
+  --fm:'Space Mono',monospace;
+  --shadow:0 2px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.12);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--fb);cursor:pointer}
+input,select,textarea{font-family:var(--fb)}
+img{max-width:100%}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════════ */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--g2);border-radius:99px}
+
+/* ═══════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,166,35,.15);transition:all .3s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.logo-mark{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:28px;height:28px}
+.logo-mark span{border-radius:3px}
+.logo-mark span:nth-child(1),.logo-mark span:nth-child(4){background:var(--g2)}
+.logo-mark span:nth-child(2),.logo-mark span:nth-child(3){background:var(--gold);opacity:.5}
+.logo-text{font-family:var(--fd);color:#fff;font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.logo-badge{font-family:var(--fm);font-size:.55rem;color:var(--gold);border:1px solid rgba(245,166,35,.35);padding:.12rem .35rem;border-radius:3px;letter-spacing:.05em}
+.nav-links{display:flex;align-items:center;gap:.25rem}
+.nav-link{color:rgba(255,255,255,.55);font-size:.82rem;font-weight:500;padding:.45rem .85rem;border-radius:7px;border:none;background:none;transition:all .2s;white-space:nowrap}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-link.active{color:var(--g3);background:rgba(0,154,68,.12);border:1px solid rgba(0,154,68,.2)}
+.nav-cta{background:var(--g2);color:#fff !important;padding:.45rem 1.1rem;border-radius:7px;font-weight:600;border:none;transition:all .2s}
+.nav-cta:hover{background:var(--g3);transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.lang-toggle{display:flex;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.lang-btn{background:none;border:none;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:600;padding:.3rem .6rem;cursor:pointer;font-family:var(--fm);transition:all .2s}
+.lang-btn.on{background:rgba(255,255,255,.12);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:.4rem;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:99px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);z-index:1100;padding:5rem 2rem 2rem;flex-direction:column;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-link{color:rgba(255,255,255,.7);font-size:1.1rem;font-weight:500;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════ */
+#home{padding-top:98px}
+.hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-circles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hc{position:absolute;border-radius:50%;opacity:.07}
+.hc1{width:700px;height:700px;background:var(--g2);top:-150px;right:-120px;animation:float1 8s ease-in-out infinite}
+.hc2{width:400px;height:400px;background:var(--gold);bottom:-100px;left:5%;animation:float2 10s ease-in-out infinite}
+.hc3{width:200px;height:200px;background:var(--g3);top:40%;left:8%;animation:float1 12s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(15px)}}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,154,68,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,154,68,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;width:100%}
+.hero-flag{display:flex;gap:4px;margin-bottom:1.25rem}
+.hero-flag span{height:5px;border-radius:99px;width:36px}
+.f-red{background:#C0392B}.f-gold{background:var(--gold)}.f-green{background:var(--g2)}
+.hero-chip{font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem}
+.hero-chip::before{content:'';width:18px;height:1px;background:var(--gold);display:inline-block}
+.hero-h1{font-family:var(--fd);font-size:clamp(3rem,5.5vw,4.5rem);font-weight:900;color:#fff;line-height:1.02;letter-spacing:-.025em;margin-bottom:.4rem}
+.hero-h1 em{color:var(--g3);font-style:normal}
+.hero-subtitle{font-family:var(--fd);font-size:1.05rem;color:var(--gold);font-style:italic;font-weight:700;margin-bottom:1.1rem}
+.hero-desc{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.78;max-width:470px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-primary{background:var(--g2);color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-weight:600;font-size:.875rem;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.45rem;text-decoration:none}
+.btn-primary:hover{background:var(--g3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,154,68,.3)}
+.btn-outline{background:transparent;color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-weight:500;font-size:.875rem;border:1px solid rgba(255,255,255,.22);cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:.45rem}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.hstat{background:rgba(10,22,40,.82);padding:1.5rem;text-align:center;transition:background .2s}
+.hstat:hover{background:rgba(10,22,40,.95)}
+.hstat-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.3rem}
+.hstat-num.g{color:var(--g3)}.hstat-num.y{color:var(--gold)}
+.hstat-label{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;line-height:1.4;margin-bottom:.4rem}
+.hstat-tag{display:inline-block;font-family:var(--fm);font-size:.55rem;color:var(--g3);background:rgba(0,200,90,.08);border:1px solid rgba(0,200,90,.18);padding:.12rem .35rem;border-radius:3px}
+.smsi-strip{background:linear-gradient(135deg,var(--g1) 0%,var(--navy2) 100%);padding:.85rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(245,166,35,.15)}
+.smsi-strip p{font-size:.78rem;color:rgba(255,255,255,.7)}
+.smsi-strip strong{color:var(--gold)}
+.smsi-dots{display:flex;gap:.35rem}
+.smsi-dots span{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.smsi-dots span:nth-child(1){opacity:.3}.smsi-dots span:nth-child(2){opacity:.6}
+
+/* ═══════════════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════════════ */
+section{padding:5.5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--fm);font-size:.62rem;color:var(--g2);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:.45rem;margin-bottom:.6rem}
+.section-label::before{content:'';width:14px;height:1px;background:var(--g2);display:inline-block}
+.section-title{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
+.section-title em{color:var(--g2);font-style:normal}
+.section-sub{font-size:.9rem;color:var(--muted);line-height:1.72;max-width:540px}
+.on-dark .section-title{color:#fff}
+.on-dark .section-sub{color:rgba(255,255,255,.5)}
+.on-dark .section-label{color:var(--g3)}
+.on-dark .section-label::before{background:var(--g3)}
+
+/* ═══════════════════════════════════════════════════════
+   PROBLÈME
+═══════════════════════════════════════════════════════ */
+#probleme{background:var(--off)}
+.problem-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem}
+.aminata-card{background:var(--navy);border-radius:18px;padding:2rem;position:relative;overflow:hidden}
+.aminata-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--g2),var(--gold))}
+.aminata-card::after{content:'"';position:absolute;top:-1rem;right:1.5rem;font-family:var(--fd);font-size:8rem;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+.aminata-quote{font-family:var(--fd);font-size:1.12rem;font-style:italic;color:#fff;line-height:1.68;margin-bottom:1.5rem;position:relative;z-index:1}
+.aminata-author{display:flex;align-items:center;gap:.85rem}
+.aminata-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:.95rem;flex-shrink:0}
+.aminata-info strong{display:block;color:#fff;font-size:.875rem}
+.aminata-info span{color:rgba(255,255,255,.45);font-size:.72rem}
+.problem-numbers{display:flex;flex-direction:column;gap:1rem}
+.prob-num-card{background:#fff;border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;border-left:4px solid var(--g2);box-shadow:var(--shadow)}
+.prob-num-card.warn{border-color:var(--gold)}
+.prob-num-card.danger{border-color:var(--red)}
+.prob-big-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;color:var(--g1);line-height:1;flex-shrink:0;min-width:80px}
+.prob-num-card.warn .prob-big-num{color:#7a5200}
+.prob-num-card.danger .prob-big-num{color:var(--red)}
+.prob-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+.prob-desc strong{color:var(--text);display:block;margin-bottom:.2rem;font-size:.87rem}
+.prob-map-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.prob-region{background:#fff;border-radius:12px;padding:1.25rem;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);transition:all .25s}
+.prob-region:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--g2)}
+.prob-region-num{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:.2rem}
+.prob-region-name{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.prob-region-pop{font-size:.78rem;font-weight:600;color:var(--g2)}
+
+/* ═══════════════════════════════════════════════════════
+   SOLUTION
+═══════════════════════════════════════════════════════ */
+#solution{background:var(--white)}
+.solution-header{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;margin:3rem 0}
+.big-word{font-family:var(--fd);font-size:clamp(3.5rem,7vw,6rem);font-weight:900;color:var(--navy);line-height:.95;letter-spacing:-.03em}
+.big-word em{color:var(--g2);font-style:normal;display:block}
+.solution-promise{background:rgba(0,107,48,.06);border:1px solid rgba(0,107,48,.15);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;border-left:4px solid var(--g2)}
+.solution-promise p{font-size:.9rem;color:var(--navy);line-height:1.65;font-weight:500}
+.solution-promise .sp-time{font-family:var(--fm);font-size:.72rem;color:var(--g1);margin-top:.6rem;display:flex;gap:1.5rem}
+
+/* FLUX */
+.flux-block{background:var(--navy);border-radius:18px;padding:2rem;margin:2rem 0}
+.flux-label{font-family:var(--fm);font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.flux-row{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem}
+.flux-node{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.1rem;text-align:center;flex:1;min-width:110px;transition:all .25s;cursor:default}
+.flux-node:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+.flux-node.accent{background:rgba(0,154,68,.12);border-color:rgba(0,154,68,.3)}
+.flux-node .fn-ico{font-size:1.4rem;margin-bottom:.5rem}
+.flux-node .fn-name{font-size:.72rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
+.flux-node .fn-sub{font-size:.62rem;color:rgba(255,255,255,.35);line-height:1.4}
+.flux-arrow{display:flex;align-items:center;justify-content:center;padding:0 .5rem;color:var(--g2);font-size:1.1rem;flex-shrink:0}
+
+/* FONCTIONNALITÉS */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.feat-card{background:var(--off);border-radius:16px;padding:1.6rem;border:1.5px solid transparent;transition:all .28s;cursor:default}
+.feat-card:hover{border-color:var(--g2);background:#fff;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,107,48,.1)}
+.feat-icon-wrap{width:46px;height:46px;border-radius:12px;background:rgba(0,154,68,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.1rem;transition:all .25s}
+.feat-card:hover .feat-icon-wrap{background:rgba(0,154,68,.18)}
+.feat-card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.45rem}
+.feat-card p{font-size:.78rem;color:var(--muted);line-height:1.6}
+.feat-badge{display:inline-block;font-size:.6rem;font-weight:700;background:rgba(0,107,48,.1);color:var(--g1);padding:.2rem .5rem;border-radius:4px;margin-top:.65rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* ═══════════════════════════════════════════════════════
+   ESPACES (3 panels interactifs)
+═══════════════════════════════════════════════════════ */
+#espaces{background:var(--navy)}
+.espaces-tabs{display:flex;gap:.5rem;margin:2rem 0 0;flex-wrap:wrap}
+.espace-tab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.82rem;font-weight:600;padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all .2s}
+.espace-tab:hover{color:#fff;background:rgba(255,255,255,.1)}
+.espace-tab.active{background:rgba(0,154,68,.15);color:var(--g3);border-color:rgba(0,154,68,.3)}
+.espace-tab.tab-gold.active{background:rgba(245,166,35,.12);color:var(--gold2);border-color:rgba(245,166,35,.3)}
+.espace-tab.tab-blue.active{background:rgba(10,22,40,.5);color:#7dd3fc;border-color:rgba(125,211,252,.3)}
+.espaces-panel{display:none;animation:fadeSlide .35s ease}
+.espaces-panel.active{display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:start;padding:2rem 0 1rem}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.panel-info h3{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.75rem}
+.panel-info p{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.72;margin-bottom:1.25rem}
+.panel-features{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.panel-features li{display:flex;align-items:flex-start;gap:.65rem;font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.5}
+.panel-features li::before{content:'✓';color:var(--g3);font-weight:700;flex-shrink:0;margin-top:.05rem}
+.panel-features li.gold::before{color:var(--gold)}
+.panel-features li.blue::before{color:#7dd3fc}
+.panel-mockup{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden}
+.pm-header{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.pm-header-title{font-size:.78rem;font-weight:600;color:#fff}
+.pm-header-badge{font-size:.6rem;background:rgba(0,154,68,.2);color:var(--g3);border:1px solid rgba(0,154,68,.3);padding:.2rem .5rem;border-radius:4px;font-weight:700}
+.pm-header-badge.gold{background:rgba(245,166,35,.12);color:var(--gold);border-color:rgba(245,166,35,.25)}
+.pm-header-badge.blue{background:rgba(125,211,252,.08);color:#7dd3fc;border-color:rgba(125,211,252,.2)}
+.pm-body{padding:1.1rem}
+.pm-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
+.pm-kpi{background:rgba(255,255,255,.04);border-radius:8px;padding:.75rem;text-align:center;border:1px solid rgba(255,255,255,.06)}
+.pm-kpi-val{font-family:var(--fd);font-size:1.3rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.2rem}
+.pm-kpi-val.g{color:var(--g3)}.pm-kpi-val.y{color:var(--gold)}.pm-kpi-val.r{color:var(--red2)}
+.pm-kpi-label{font-size:.58rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.05em}
+.pm-table{width:100%;border-collapse:collapse}
+.pm-table th{font-size:.6rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:.5rem .6rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.pm-table td{font-size:.74rem;padding:.65rem .6rem;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7);vertical-align:middle}
+.pm-table tr:last-child td{border-bottom:none}
+.pm-table tr:hover td{background:rgba(255,255,255,.02)}
+.price-badge{font-size:.62rem;font-weight:700;padding:.2rem .45rem;border-radius:99px}
+.price-badge.ok{background:rgba(0,154,68,.15);color:var(--g3)}
+.price-badge.warn{background:rgba(245,166,35,.12);color:var(--gold)}
+.price-badge.bad{background:rgba(192,57,43,.12);color:var(--red2)}
+.status-dot{display:inline-flex;align-items:center;gap:.3rem;font-size:.65rem}
+.status-dot::before{content:'';width:6px;height:6px;border-radius:50%;display:inline-block}
+.status-dot.g::before{background:var(--g3)}.status-dot.y::before{background:var(--gold)}.status-dot.r::before{background:var(--red2)}
+.notif-list{display:flex;flex-direction:column;gap:.5rem}
+.notif-item{display:flex;gap:.65rem;background:rgba(255,255,255,.03);border-radius:8px;padding:.65rem;align-items:flex-start;border:1px solid rgba(255,255,255,.04)}
+.notif-ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.notif-ico.g{background:rgba(0,154,68,.15)}.notif-ico.y{background:rgba(245,166,35,.12)}.notif-ico.r{background:rgba(192,57,43,.1)}
+.notif-text{font-size:.72rem;color:rgba(255,255,255,.6);line-height:1.45}
+.notif-time{font-size:.6rem;color:rgba(255,255,255,.25);font-family:var(--fm);margin-top:.2rem}
+.boutique-row{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.03);border-radius:8px;padding:.75rem;margin-bottom:.5rem;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:all .2s}
+.boutique-row:hover{background:rgba(255,255,255,.06);border-color:rgba(0,154,68,.2)}
+.bout-rank-badge{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0}
+.bout-rank-badge.r1{background:var(--g2);color:#fff}.bout-rank-badge.r2,.bout-rank-badge.r3{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.bout-info{flex:1}
+.bout-name{font-size:.75rem;font-weight:600;color:#fff}
+.bout-dist{font-size:.63rem;color:rgba(255,255,255,.35);margin-top:.1rem}
+.bout-conf{font-size:.58rem;color:var(--g3);background:rgba(0,154,68,.1);padding:.1rem .3rem;border-radius:3px;font-weight:700}
+.bout-price-val{font-size:.82rem;font-weight:700;color:#fff;text-align:right}
+.bout-price-diff{font-size:.62rem;font-weight:600;text-align:right}
+.bout-price-diff.ok{color:var(--g3)}.bout-price-diff.bad{color:var(--red2)}
+.signal-form-pm{display:flex;flex-direction:column;gap:.6rem}
+.signal-form-pm select,.signal-form-pm input,.signal-form-pm textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:.6rem .85rem;font-size:.75rem;color:#fff;outline:none;font-family:var(--fb);transition:border-color .2s}
+.signal-form-pm select:focus,.signal-form-pm input:focus,.signal-form-pm textarea:focus{border-color:rgba(0,154,68,.5)}
+.signal-form-pm textarea{height:70px;resize:none;line-height:1.5}
+.signal-form-pm select option{background:var(--navy2);color:#fff}
+.signal-actions-row{display:flex;gap:.5rem}
+.sig-upload{flex:1;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.15);border-radius:7px;padding:.55rem;text-align:center;font-size:.7rem;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s}
+.sig-upload:hover{border-color:rgba(0,154,68,.4);color:var(--g3)}
+.sig-submit-btn{background:var(--red2);color:#fff;border:none;border-radius:7px;padding:.55rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer;font-family:var(--fb);white-space:nowrap;transition:all .2s}
+.sig-submit-btn:hover{background:var(--red)}
+
+/* ═══════════════════════════════════════════════════════
+   USSD
+═══════════════════════════════════════════════════════ */
+#ussd-section{background:var(--navy2)}
+.ussd-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.ussd-device-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.ussd-phone{background:#1a1a1a;border-radius:30px;padding:1.5rem 1.25rem;width:260px;border:3px solid #2a2a2a;box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05)}
+.ussd-topbar{display:flex;justify-content:space-between;margin-bottom:1rem;font-family:var(--fm);font-size:.6rem;color:rgba(255,255,255,.25)}
+.ussd-screen{background:#0d0d0d;border-radius:10px;padding:1.1rem;margin-bottom:1rem;font-family:var(--fm);font-size:.72rem;color:#00ff41;line-height:2;min-height:190px;border:1px solid #1a1a1a}
+.ussd-dim{color:rgba(0,255,65,.3)}
+.ussd-sep{color:rgba(0,255,65,.15)}
+.ussd-input-line{color:#00ff41}
+.ussd-cursor{animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.ussd-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.ukey{background:#2a2a2a;border:none;border-radius:10px;padding:.7rem;text-align:center;cursor:pointer;color:rgba(255,255,255,.7);font-family:var(--fm);font-size:.85rem;font-weight:700;transition:all .15s;user-select:none}
+.ukey:hover{background:#3a3a3a;color:#fff}
+.ukey:active{transform:scale(.94);background:#444}
+.ukey.del{background:rgba(192,57,43,.2);color:var(--red2)}
+.ukey.del:hover{background:rgba(192,57,43,.35)}
+.ukey.ok{background:rgba(0,154,68,.2);color:var(--g3);font-size:.7rem}
+.ukey.ok:hover{background:rgba(0,154,68,.35)}
+.ussd-info{color:rgba(255,255,255,.5)}
+.ussd-info h3{font-family:var(--fd);font-size:1.45rem;font-weight:900;color:#fff;margin-bottom:.65rem;line-height:1.2}
+.ussd-info h3 em{color:var(--g3);font-style:normal}
+.ussd-info > p{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.72;margin-bottom:1.5rem}
+.ussd-pts{display:flex;flex-direction:column;gap:.85rem}
+.ussd-pt{display:flex;gap:.85rem;align-items:flex-start;background:rgba(255,255,255,.04);border-radius:10px;padding:.9rem;border:1px solid rgba(255,255,255,.06);transition:all .2s}
+.ussd-pt:hover{background:rgba(255,255,255,.07);border-color:rgba(0,154,68,.2)}
+.ussd-pt-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.ussd-pt-icon.g{background:rgba(0,154,68,.15)}
+.ussd-pt-icon.y{background:rgba(245,166,35,.12)}
+.ussd-pt h4{font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.2rem}
+.ussd-pt p{font-size:.72rem;color:rgba(255,255,255,.38);line-height:1.5}
+
+/* ═══════════════════════════════════════════════════════
+   IMPACT
+═══════════════════════════════════════════════════════ */
+#impact{background:var(--off)}
+.impact-top{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-bottom:2.5rem}
+.imp-card{background:#fff;border-radius:16px;padding:1.5rem;border:1px solid var(--border);transition:all .28s;position:relative;overflow:hidden}
+.imp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g2),var(--g3))}
+.imp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.imp-num{font-family:var(--fd);font-size:2rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:.25rem}
+.imp-unit{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.85rem}
+.imp-bar{height:4px;background:rgba(0,107,48,.08);border-radius:99px;overflow:hidden;margin-bottom:.85rem}
+.imp-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g3));border-radius:99px;width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.imp-desc{font-size:.73rem;color:var(--muted);line-height:1.5}
+.odd-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.odd-card{border-radius:14px;padding:1.4rem;position:relative;overflow:hidden}
+.odd-card::after{content:'';position:absolute;bottom:-1rem;right:-1rem;width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.08)}
+.odd-card.c1{background:#E5243B;color:#fff}
+.odd-card.c2{background:#DDA63A;color:#fff}
+.odd-card.c3{background:#4C9F38;color:#fff}
+.odd-card.c4{background:#00689D;color:#fff}
+.odd-num{font-family:var(--fd);font-size:2rem;font-weight:900;opacity:.55;line-height:1;margin-bottom:.3rem}
+.odd-name{font-size:.78rem;font-weight:700;margin-bottom:.45rem;line-height:1.3}
+.odd-desc{font-size:.68rem;opacity:.75;line-height:1.45}
+
+/* ═══════════════════════════════════════════════════════
+   MONDE
+═══════════════════════════════════════════════════════ */
+#monde{background:var(--navy);text-align:center}
+.monde-big-num{font-family:var(--fd);font-size:clamp(4.5rem,11vw,9rem);font-weight:900;color:var(--g3);line-height:1;margin:2rem 0 .6rem;animation:countUp .5s ease}
+.monde-caption{font-size:.95rem;color:rgba(255,255,255,.45);margin-bottom:3rem}
+.regions-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.06);max-width:1000px;margin:0 auto 3rem}
+.region-box{background:rgba(10,22,40,.85);padding:1.4rem 1rem;text-align:center;transition:background .2s;cursor:default}
+.region-box:hover{background:rgba(10,22,40,.98)}
+.region-name{font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.region-count{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.2rem}
+.region-pop{font-size:.68rem;color:var(--g3);font-weight:600}
+.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1000px;margin:0 auto}
+.roadmap-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.4rem;text-align:left;position:relative;transition:all .25s}
+.roadmap-card:hover{background:rgba(255,255,255,.07);border-color:rgba(0,154,68,.2)}
+.roadmap-phase{font-family:var(--fm);font-size:.6rem;font-weight:700;color:var(--g3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.roadmap-period{font-size:.68rem;color:rgba(255,255,255,.3);font-style:italic;margin-bottom:.6rem}
+.roadmap-title{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.roadmap-items{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.roadmap-items li{font-size:.7rem;color:rgba(255,255,255,.45);display:flex;align-items:flex-start;gap:.4rem;line-height:1.4}
+.roadmap-items li::before{content:'→';color:var(--g2);flex-shrink:0;font-size:.65rem;margin-top:.1rem}
+.roadmap-dot{position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;border:2px solid var(--navy)}
+
+
+/* ═══════════════════════════════════════════════════════
+   CTA
+═══════════════════════════════════════════════════════ */
+#contact{background:linear-gradient(135deg,var(--g1) 0%,var(--navy2) 55%);text-align:center;padding:7rem 2rem;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:rgba(245,166,35,.06);pointer-events:none}
+.cta-title{font-family:var(--fd);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem}
+.cta-title em{color:var(--gold2);font-style:normal}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-gold{background:var(--gold);color:var(--navy);padding:.8rem 1.9rem;border-radius:8px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:.45rem}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.35)}
+.cta-contacts{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.cta-contact-item{color:rgba(255,255,255,.45);font-size:.8rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem}
+.cta-contact-item:hover{color:#fff}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
+.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.65;margin-top:.6rem}
+.footer-title{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;font-family:var(--fm)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.footer-links a{color:rgba(255,255,255,.35);font-size:.78rem;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:.75rem 2rem 1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.25)}
+.footer-bottom strong{color:var(--gold)}
+
+/* ═══════════════════════════════════════════════════════
+   BACK TO TOP
+═══════════════════════════════════════════════════════ */
+#btt{position:fixed;bottom:1.75rem;right:1.75rem;width:42px;height:42px;background:var(--g2);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:999;transition:all .3s;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,154,68,.4)}
+#btt.visible{opacity:1;pointer-events:auto}
+#btt:hover{background:var(--g3);transform:translateY(-3px)}
+
+/* ═══════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner,.problem-top,.solution-header,.ussd-layout,.espaces-panel.active{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .impact-grid,.odd-row,.roadmap-grid{grid-template-columns:repeat(2,1fr)}
+  .regions-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-inner{text-align:center}
+  .hero-desc{max-width:100%;margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hero-flag{justify-content:center}
+  .hero-chip{justify-content:center}
+}
+@media(max-width:640px){
+  .features-grid,.impact-grid,.odd-row,.roadmap-grid,.regions-grid,.prob-map-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .pm-kpi-row{grid-template-columns:repeat(2,1fr)}
+  .flux-row{flex-direction:column;gap:.5rem}
+  .flux-arrow{transform:rotate(90deg)}
+  section{padding:3.5rem 1.25rem}
+  .espaces-tabs{gap:.35rem}
+  .espace-tab{font-size:.74rem;padding:.5rem .9rem}
+}
+   APP SHELL — Page Router
+═══════════════════════════════════════════════════════ */
+.app-page{display:none}
+.app-page.active{display:block}
+
+/* ═══════════════════════════════════════════════════════
+   LANDING PAGE NAV
+═══════════════════════════════════════════════════════ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,166,35,.15);transition:all .3s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.logo-mark{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:28px;height:28px}
+.logo-mark span{border-radius:3px}
+.logo-mark span:nth-child(1),.logo-mark span:nth-child(4){background:var(--g2)}
+.logo-mark span:nth-child(2),.logo-mark span:nth-child(3){background:var(--gold);opacity:.5}
+.logo-text{font-family:var(--fd);color:#fff;font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.logo-badge{font-family:var(--fm);font-size:.55rem;color:var(--gold);border:1px solid rgba(245,166,35,.35);padding:.12rem .35rem;border-radius:3px;letter-spacing:.05em}
+.nav-links{display:flex;align-items:center;gap:.25rem}
+.nav-link{color:rgba(255,255,255,.55);font-size:.82rem;font-weight:500;padding:.45rem .85rem;border-radius:7px;border:none;background:none;transition:all .2s;white-space:nowrap}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{background:var(--g2);color:#fff !important;padding:.45rem 1.1rem;border-radius:7px;font-weight:600;border:none;transition:all .2s}
+.nav-cta:hover{background:var(--g3);transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.lang-toggle{display:flex;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.lang-btn{background:none;border:none;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:600;padding:.3rem .6rem;cursor:pointer;font-family:var(--fm);transition:all .2s}
+.lang-btn.on{background:rgba(255,255,255,.12);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:.4rem;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:99px;transition:all .3s}
+
+/* ═══════════════════════════════════════════════════════
+   SHARED COMPONENTS
+═══════════════════════════════════════════════════════ */
+.btn-primary{background:var(--g2);color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-weight:600;font-size:.875rem;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.45rem}
+.btn-primary:hover{background:var(--g3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,154,68,.3)}
+.btn-outline{background:transparent;color:#fff;padding:.72rem 1.6rem;border-radius:8px;font-weight:500;font-size:.875rem;border:1px solid rgba(255,255,255,.22);cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.45rem}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.container{max-width:1200px;margin:0 auto}
+section{padding:5.5rem 2rem}
+.section-label{font-family:var(--fm);font-size:.62rem;color:var(--g2);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:.45rem;margin-bottom:.6rem}
+.section-label::before{content:'';width:14px;height:1px;background:var(--g2);display:inline-block}
+.section-title{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
+.section-title em{color:var(--g2);font-style:normal}
+.section-sub{font-size:.9rem;color:var(--muted);line-height:1.72;max-width:540px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════ */
+.hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-circles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hc{position:absolute;border-radius:50%;opacity:.07}
+.hc1{width:700px;height:700px;background:var(--g2);top:-150px;right:-120px;animation:float1 8s ease-in-out infinite}
+.hc2{width:400px;height:400px;background:var(--gold);bottom:-100px;left:5%;animation:float2 10s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(15px)}}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,154,68,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,154,68,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;width:100%}
+.hero-flag{display:flex;gap:4px;margin-bottom:1.25rem}
+.hero-flag span{height:5px;border-radius:99px;width:36px}
+.f-red{background:#C0392B}.f-gold{background:var(--gold)}.f-green{background:var(--g2)}
+.hero-chip{font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem}
+.hero-chip::before{content:'';width:18px;height:1px;background:var(--gold);display:inline-block}
+.hero-h1{font-family:var(--fd);font-size:clamp(3rem,5.5vw,4.5rem);font-weight:900;color:#fff;line-height:1.02;letter-spacing:-.025em;margin-bottom:.4rem}
+.hero-h1 em{color:var(--g3);font-style:normal}
+.hero-subtitle{font-family:var(--fd);font-size:1.05rem;color:var(--gold);font-style:italic;font-weight:700;margin-bottom:1.1rem}
+.hero-desc{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.78;max-width:470px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.hstat{background:rgba(10,22,40,.82);padding:1.5rem;text-align:center;transition:background .2s}
+.hstat:hover{background:rgba(10,22,40,.95)}
+.hstat-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.3rem}
+.hstat-num.g{color:var(--g3)}.hstat-num.y{color:var(--gold)}
+.hstat-label{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;line-height:1.4;margin-bottom:.4rem}
+.hstat-tag{display:inline-block;font-family:var(--fm);font-size:.55rem;color:var(--g3);background:rgba(0,200,90,.08);border:1px solid rgba(0,200,90,.18);padding:.12rem .35rem;border-radius:3px}
+.smsi-strip{background:linear-gradient(135deg,var(--g1) 0%,var(--navy2) 100%);padding:.85rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(245,166,35,.15)}
+.smsi-strip p{font-size:.78rem;color:rgba(255,255,255,.7)}
+.smsi-strip strong{color:var(--gold)}
+
+/* ═══════════════════════════════════════════════════════
+   LOGIN / AUTH
+═══════════════════════════════════════════════════════ */
+.login-page{min-height:100vh;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.login-page .hero-circles,.login-page .hero-grid-bg{position:absolute;inset:0;pointer-events:none}
+.login-container{position:relative;z-index:2;width:100%;max-width:460px;padding:2rem}
+.login-logo{text-align:center;margin-bottom:2rem}
+.login-logo h2{font-family:var(--fd);font-size:2rem;color:#fff;font-weight:900;margin-top:.75rem}
+.login-logo p{color:rgba(255,255,255,.4);font-size:.82rem;margin-top:.3rem}
+.login-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:2rem;backdrop-filter:blur(12px)}
+.login-tabs{display:flex;gap:.35rem;margin-bottom:1.75rem;background:rgba(255,255,255,.04);border-radius:10px;padding:.3rem}
+.login-tab{flex:1;padding:.6rem;border:none;background:none;color:rgba(255,255,255,.4);font-size:.78rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all .2s;text-align:center}
+.login-tab.active{background:var(--g2);color:#fff}
+.login-tab:hover:not(.active){color:rgba(255,255,255,.7);background:rgba(255,255,255,.04)}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:.4rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.form-group input,.form-group select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.7rem 1rem;color:#fff;font-size:.875rem;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--g2)}
+.form-group select option{background:var(--navy2);color:#fff}
+.form-group input::placeholder{color:rgba(255,255,255,.2)}
+.login-btn{width:100%;padding:.8rem;background:var(--g2);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.login-btn:hover{background:var(--g3)}
+.login-footer{text-align:center;margin-top:1.25rem}
+.login-footer a{color:var(--g3);font-size:.78rem;font-weight:500}
+.login-back{display:block;text-align:center;margin-top:1.5rem;color:rgba(255,255,255,.35);font-size:.82rem;cursor:pointer;transition:color .2s}
+.login-back:hover{color:#fff}
+
+/* ═══════════════════════════════════════════════════════
+   DASHBOARD LAYOUT (shared)
+═══════════════════════════════════════════════════════ */
+.dash{display:flex;min-height:100vh}
+.dash-sidebar{width:250px;background:var(--navy);border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;position:fixed;top:0;bottom:0;left:0;z-index:100;overflow-y:auto}
+.app-page:not(.active) .dash-sidebar{display:none !important}
+.dash-sidebar-header{padding:1.25rem 1.25rem .75rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.dash-sidebar-header .nav-logo{margin-bottom:.5rem}
+.dash-user-info{padding:.5rem .75rem;background:rgba(255,255,255,.04);border-radius:8px;margin-top:.5rem}
+.dash-user-name{font-size:.8rem;font-weight:600;color:#fff}
+.dash-user-role{font-size:.62rem;color:rgba(255,255,255,.35);font-family:var(--fm)}
+.dash-nav{flex:1;padding:1rem .75rem;display:flex;flex-direction:column;gap:.2rem}
+.dash-nav-item{display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;border-radius:8px;border:none;background:none;color:rgba(255,255,255,.45);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;text-align:left;width:100%}
+.dash-nav-item:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.04)}
+.dash-nav-item.active{color:var(--g3);background:rgba(0,154,68,.1);border:1px solid rgba(0,154,68,.15)}
+.dash-nav-item .nav-icon{width:20px;text-align:center;font-size:.9rem}
+.dash-nav-item .nav-count{margin-left:auto;font-family:var(--fm);font-size:.6rem;background:var(--red2);color:#fff;padding:.12rem .4rem;border-radius:99px}
+.dash-nav-divider{height:1px;background:rgba(255,255,255,.06);margin:.5rem 0}
+.dash-sidebar-footer{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.06)}
+.dash-logout{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.3);font-size:.78rem;background:none;border:none;cursor:pointer;transition:color .2s;width:100%;padding:.5rem 0}
+.dash-logout:hover{color:var(--red2)}
+.dash-main{flex:1;margin-left:250px;background:var(--off)}
+.dash-topbar{position:sticky;top:0;z-index:50;background:rgba(248,246,241,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.dash-topbar h1{font-family:var(--fd);font-size:1.25rem;font-weight:900;color:var(--navy)}
+.dash-topbar-right{display:flex;align-items:center;gap:1rem}
+.dash-topbar-time{font-family:var(--fm);font-size:.7rem;color:var(--muted)}
+.dash-notif-btn{position:relative;background:none;border:1px solid var(--border);border-radius:8px;padding:.45rem .65rem;cursor:pointer;font-size:.9rem;transition:all .2s}
+.dash-notif-btn:hover{background:rgba(0,154,68,.05);border-color:var(--g2)}
+.dash-notif-btn .notif-dot{position:absolute;top:-.2rem;right:-.2rem;width:8px;height:8px;background:var(--red2);border-radius:50%;border:2px solid var(--off)}
+.dash-content{padding:1.75rem 2rem}
+
+/* KPI Cards */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem}
+.kpi-card{background:#fff;border-radius:14px;padding:1.25rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .25s}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi-card.green::before{background:var(--g2)}.kpi-card.gold::before{background:var(--gold)}
+.kpi-card.red::before{background:var(--red2)}.kpi-card.blue::before{background:var(--blue)}
+.kpi-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.kpi-value{font-family:var(--fd);font-size:1.8rem;font-weight:900;color:var(--navy);line-height:1}
+.kpi-change{display:inline-flex;align-items:center;gap:.25rem;font-size:.65rem;font-weight:600;margin-top:.4rem;padding:.15rem .4rem;border-radius:4px}
+.kpi-change.up{color:var(--g1);background:rgba(0,154,68,.08)}
+.kpi-change.down{color:var(--red);background:rgba(192,57,43,.08)}
+
+/* Data Table */
+.data-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.5rem}
+.data-card-header{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.04)}
+.data-card-header h3{font-size:.9rem;font-weight:700;color:var(--navy)}
+.data-card-badge{font-family:var(--fm);font-size:.6rem;padding:.2rem .5rem;border-radius:4px;font-weight:600}
+.data-card-badge.live{background:rgba(0,154,68,.08);color:var(--g1);border:1px solid rgba(0,154,68,.15)}
+.data-table{width:100%;border-collapse:collapse}
+.data-table th{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:.65rem 1rem;border-bottom:1px solid rgba(0,0,0,.04);font-weight:600}
+.data-table td{font-size:.82rem;padding:.75rem 1rem;border-bottom:1px solid rgba(0,0,0,.03);color:var(--text);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:rgba(0,154,68,.02)}
+.badge{font-size:.62rem;font-weight:700;padding:.2rem .5rem;border-radius:99px;white-space:nowrap}
+.badge.ok{background:rgba(0,154,68,.1);color:var(--g1)}
+.badge.warn{background:rgba(245,166,35,.1);color:#7a5200}
+.badge.danger{background:rgba(192,57,43,.08);color:var(--red)}
+.badge.info{background:rgba(59,130,246,.08);color:var(--blue)}
+.status-dot{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:500}
+.status-dot::before{content:'';width:7px;height:7px;border-radius:50%;display:inline-block}
+.status-dot.g::before{background:var(--g3)}.status-dot.y::before{background:var(--gold)}.status-dot.r::before{background:var(--red2)}
+
+/* Charts area */
+.charts-row{display:grid;grid-template-columns:1.3fr 1fr;gap:1.25rem;margin-bottom:1.5rem}
+.chart-box{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.25rem}
+.chart-box h3{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+.bar-chart{display:flex;align-items:flex-end;gap:.5rem;height:160px;padding-top:.5rem}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.bar{border-radius:6px 6px 0 0;width:100%;transition:height 1s cubic-bezier(.4,0,.2,1);position:relative}
+.bar-label{font-size:.55rem;color:var(--muted);font-family:var(--fm)}
+.bar-val{font-size:.55rem;color:var(--navy);font-weight:700;font-family:var(--fm)}
+/* Donut chart */
+.donut-chart{width:140px;height:140px;border-radius:50%;position:relative;margin:0 auto}
+.donut-center{position:absolute;inset:25%;background:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-center .big{font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);line-height:1}
+.donut-center .small{font-size:.55rem;color:var(--muted)}
+.donut-legend{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}
+.donut-legend-item{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--muted)}
+.donut-legend-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Map placeholder */
+.map-container{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.5rem}
+.map-header{padding:1rem 1.25rem;border-bottom:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between}
+.map-header h3{font-size:.9rem;font-weight:700;color:var(--navy)}
+.map-body{height:320px;background:linear-gradient(135deg,#e8f5ed 0%,#f0ede3 100%);position:relative;display:flex;align-items:center;justify-content:center}
+.map-pin{position:absolute;display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:transform .2s}
+.map-pin:hover{transform:scale(1.15)}
+.map-pin .pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.map-pin .pin-label{font-size:.55rem;font-weight:600;background:#fff;padding:.1rem .3rem;border-radius:4px;margin-top:.2rem;box-shadow:0 1px 4px rgba(0,0,0,.1);white-space:nowrap}
+
+/* Notification panel */
+.notif-panel{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden}
+.notif-panel-header{padding:1rem 1.25rem;border-bottom:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between}
+.notif-panel-header h3{font-size:.9rem;font-weight:700;color:var(--navy)}
+.notif-list-dash{max-height:400px;overflow-y:auto}
+.notif-item-dash{display:flex;gap:.75rem;padding:.85rem 1.25rem;border-bottom:1px solid rgba(0,0,0,.03);transition:background .2s;cursor:pointer;align-items:flex-start}
+.notif-item-dash:hover{background:rgba(0,154,68,.02)}
+.notif-item-dash:last-child{border-bottom:none}
+.notif-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.notif-icon.ng{background:rgba(0,154,68,.1)}.notif-icon.ny{background:rgba(245,166,35,.1)}.notif-icon.nr{background:rgba(192,57,43,.08)}.notif-icon.nb{background:rgba(59,130,246,.08)}
+.notif-content{flex:1}
+.notif-title{font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:.15rem}
+.notif-desc{font-size:.7rem;color:var(--muted);line-height:1.45}
+.notif-time-dash{font-family:var(--fm);font-size:.58rem;color:var(--muted);white-space:nowrap;margin-top:.15rem}
+
+/* Signal/Report Form */
+.signal-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem}
+.signal-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+.signal-form{display:flex;flex-direction:column;gap:.85rem}
+.signal-form .form-group{margin-bottom:0}
+.signal-form .form-group label{color:var(--muted);font-size:.7rem}
+.signal-form .form-group input,.signal-form .form-group select,.signal-form .form-group textarea{background:var(--off);border:1px solid var(--border);color:var(--text)}
+.signal-form .form-group input:focus,.signal-form .form-group select:focus{border-color:var(--g2)}
+.signal-form textarea{height:80px;resize:none;border-radius:8px;padding:.7rem 1rem;font-size:.82rem;line-height:1.5}
+.signal-form .upload-zone{border:2px dashed var(--border);border-radius:10px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;color:var(--muted);font-size:.82rem}
+.signal-form .upload-zone:hover{border-color:var(--g2);background:rgba(0,154,68,.02);color:var(--g1)}
+.signal-form .btn-submit{background:var(--red2);color:#fff;border:none;border-radius:8px;padding:.75rem 1.5rem;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s}
+.signal-form .btn-submit:hover{background:var(--red)}
+
+/* Comparison tool */
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.compare-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.25rem;text-align:center;transition:all .25s;cursor:pointer}
+.compare-card:hover{border-color:var(--g2);box-shadow:var(--shadow)}
+.compare-card.best{border-color:var(--g2);background:rgba(0,154,68,.02)}
+.compare-card.best::after{content:'✓ Meilleur prix';display:block;margin-top:.5rem;font-size:.6rem;font-weight:700;color:var(--g1);background:rgba(0,154,68,.08);padding:.2rem .5rem;border-radius:4px}
+.compare-shop{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.2rem}
+.compare-dist{font-size:.68rem;color:var(--muted);margin-bottom:.5rem}
+.compare-price{font-family:var(--fd);font-size:1.6rem;font-weight:900;margin-bottom:.15rem}
+.compare-price.ok{color:var(--g1)}.compare-price.high{color:var(--red)}
+.compare-official{font-size:.65rem;color:var(--muted)}
+.compare-diff{font-size:.7rem;font-weight:700;margin-top:.3rem}
+.compare-diff.ok{color:var(--g1)}.compare-diff.bad{color:var(--red)}
+
+/* USSD Section (in-dashboard) */
+.ussd-phone{background:#1a1a1a;border-radius:30px;padding:1.5rem 1.25rem;width:280px;border:3px solid #2a2a2a;box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05)}
+.ussd-topbar{display:flex;justify-content:space-between;margin-bottom:1rem;font-family:var(--fm);font-size:.6rem;color:rgba(255,255,255,.25)}
+.ussd-screen{background:#0d0d0d;border-radius:10px;padding:1.1rem;margin-bottom:1rem;font-family:var(--fm);font-size:.72rem;color:#00ff41;line-height:2;min-height:200px;border:1px solid #1a1a1a}
+.ussd-dim{color:rgba(0,255,65,.3)}.ussd-sep{color:rgba(0,255,65,.15)}
+.ussd-cursor{animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.ussd-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.ukey{background:#2a2a2a;border:none;border-radius:10px;padding:.7rem;text-align:center;cursor:pointer;color:rgba(255,255,255,.7);font-family:var(--fm);font-size:.85rem;font-weight:700;transition:all .15s;user-select:none}
+.ukey:hover{background:#3a3a3a;color:#fff}
+.ukey:active{transform:scale(.94)}.ukey.del{background:rgba(192,57,43,.2);color:var(--red2)}
+.ukey.ok{background:rgba(0,154,68,.2);color:var(--g3);font-size:.7rem}
+
+/* AI Anomaly Detection */
+.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
+.ai-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.25rem}
+.ai-card h4{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
+.ai-card h4 .ai-tag{font-family:var(--fm);font-size:.55rem;background:rgba(59,130,246,.08);color:var(--blue);padding:.15rem .35rem;border-radius:3px;font-weight:600}
+.risk-bar{display:flex;gap:.15rem;height:8px;border-radius:4px;overflow:hidden;margin-bottom:.5rem}
+.risk-segment{transition:width .8s ease}
+.heat-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.heat-cell{aspect-ratio:1;border-radius:3px;position:relative;cursor:pointer;transition:transform .15s}
+.heat-cell:hover{transform:scale(1.2);z-index:1}
+.heat-cell[title]::after{content:attr(title);display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);font-size:.55rem;background:var(--navy);color:#fff;padding:.2rem .4rem;border-radius:4px;white-space:nowrap;z-index:10}
+.heat-cell:hover::after{display:block}
+
+/* Price ticker */
+.price-ticker{background:var(--navy);padding:.5rem 0;overflow:hidden;position:relative}
+.ticker-track{display:flex;gap:3rem;animation:scroll-ticker 30s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:rgba(255,255,255,.6);flex-shrink:0}
+.ticker-item .t-name{font-weight:600;color:rgba(255,255,255,.8)}
+.ticker-item .t-price{font-family:var(--fm);font-weight:700}
+.ticker-item .t-change{font-family:var(--fm);font-weight:600;font-size:.62rem}
+.ticker-item .t-change.down{color:var(--g3)}.ticker-item .t-change.up{color:var(--red2)}
+@keyframes scroll-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════════════
+   LANDING PAGE SECTIONS (Problem, Solution, etc)
+═══════════════════════════════════════════════════════ */
+#probleme{background:var(--off)}
+.problem-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem}
+.aminata-card{background:var(--navy);border-radius:18px;padding:2rem;position:relative;overflow:hidden}
+.aminata-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--g2),var(--gold))}
+.aminata-quote{font-family:var(--fd);font-size:1.12rem;font-style:italic;color:#fff;line-height:1.68;margin-bottom:1.5rem;position:relative;z-index:1}
+.aminata-author{display:flex;align-items:center;gap:.85rem}
+.aminata-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:.95rem;flex-shrink:0}
+.aminata-info strong{display:block;color:#fff;font-size:.875rem}
+.aminata-info span{color:rgba(255,255,255,.45);font-size:.72rem}
+.problem-numbers{display:flex;flex-direction:column;gap:1rem}
+.prob-num-card{background:#fff;border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;border-left:4px solid var(--g2);box-shadow:var(--shadow)}
+.prob-num-card.warn{border-color:var(--gold)}.prob-num-card.danger{border-color:var(--red)}
+.prob-big-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;color:var(--g1);line-height:1;flex-shrink:0;min-width:80px}
+.prob-num-card.warn .prob-big-num{color:#7a5200}.prob-num-card.danger .prob-big-num{color:var(--red)}
+.prob-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+.prob-desc strong{color:var(--text);display:block;margin-bottom:.2rem;font-size:.87rem}
+.prob-map-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.prob-region{background:#fff;border-radius:12px;padding:1.25rem;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);transition:all .25s}
+.prob-region:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--g2)}
+.prob-region-num{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:.2rem}
+.prob-region-name{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.prob-region-pop{font-size:.78rem;font-weight:600;color:var(--g2)}
+
+/* Solution */
+.solution-header{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;margin:3rem 0}
+.big-word{font-family:var(--fd);font-size:clamp(3.5rem,7vw,6rem);font-weight:900;color:var(--navy);line-height:.95;letter-spacing:-.03em}
+.big-word em{color:var(--g2);font-style:normal;display:block}
+.solution-promise{background:rgba(0,107,48,.06);border:1px solid rgba(0,107,48,.15);border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;border-left:4px solid var(--g2)}
+.solution-promise p{font-size:.9rem;color:var(--navy);line-height:1.65;font-weight:500}
+.flux-block{background:var(--navy);border-radius:18px;padding:2rem;margin:2rem 0}
+.flux-label{font-family:var(--fm);font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.flux-row{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem}
+.flux-node{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.1rem;text-align:center;flex:1;min-width:110px;transition:all .25s}
+.flux-node:hover{background:rgba(255,255,255,.08)}.flux-node.accent{background:rgba(0,154,68,.12);border-color:rgba(0,154,68,.3)}
+.flux-node .fn-ico{font-size:1.4rem;margin-bottom:.5rem}
+.flux-node .fn-name{font-size:.72rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
+.flux-node .fn-sub{font-size:.62rem;color:rgba(255,255,255,.35);line-height:1.4}
+.flux-arrow{display:flex;align-items:center;justify-content:center;padding:0 .5rem;color:var(--g2);font-size:1.1rem;flex-shrink:0}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.feat-card{background:var(--off);border-radius:16px;padding:1.6rem;border:1.5px solid transparent;transition:all .28s}
+.feat-card:hover{border-color:var(--g2);background:#fff;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,107,48,.1)}
+.feat-icon-wrap{width:46px;height:46px;border-radius:12px;background:rgba(0,154,68,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.1rem}
+.feat-card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.45rem}
+.feat-card p{font-size:.78rem;color:var(--muted);line-height:1.6}
+.feat-badge{display:inline-block;font-size:.6rem;font-weight:700;background:rgba(0,107,48,.1);color:var(--g1);padding:.2rem .5rem;border-radius:4px;margin-top:.65rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* Impact */
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-bottom:2.5rem}
+.imp-card{background:#fff;border-radius:16px;padding:1.5rem;border:1px solid var(--border);transition:all .28s;position:relative;overflow:hidden}
+.imp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g2),var(--g3))}
+.imp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.imp-num{font-family:var(--fd);font-size:2rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:.25rem}
+.imp-unit{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.85rem}
+.imp-bar{height:4px;background:rgba(0,107,48,.08);border-radius:99px;overflow:hidden;margin-bottom:.85rem}
+.imp-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g3));border-radius:99px;width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.imp-desc{font-size:.73rem;color:var(--muted);line-height:1.5}
+.odd-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.odd-card{border-radius:14px;padding:1.4rem;position:relative;overflow:hidden}
+.odd-card.c1{background:#E5243B;color:#fff}.odd-card.c2{background:#DDA63A;color:#fff}
+.odd-card.c3{background:#4C9F38;color:#fff}.odd-card.c4{background:#00689D;color:#fff}
+.odd-num{font-family:var(--fd);font-size:2rem;font-weight:900;opacity:.55;line-height:1;margin-bottom:.3rem}
+.odd-name{font-size:.78rem;font-weight:700;margin-bottom:.45rem;line-height:1.3}
+.odd-desc{font-size:.68rem;opacity:.75;line-height:1.45}
+
+/* Monde */
+.monde-big-num{font-family:var(--fd);font-size:clamp(4.5rem,11vw,9rem);font-weight:900;color:var(--g3);line-height:1;margin:2rem 0 .6rem}
+.monde-caption{font-size:.95rem;color:rgba(255,255,255,.45);margin-bottom:3rem}
+.regions-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.06);max-width:1000px;margin:0 auto 3rem}
+.region-box{background:rgba(10,22,40,.85);padding:1.4rem 1rem;text-align:center;transition:background .2s}
+.region-box:hover{background:rgba(10,22,40,.98)}
+.region-name{font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.region-count{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.2rem}
+.region-pop{font-size:.68rem;color:var(--g3);font-weight:600}
+.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1000px;margin:0 auto}
+.roadmap-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.4rem;text-align:left;position:relative;transition:all .25s}
+.roadmap-card:hover{background:rgba(255,255,255,.07)}
+.roadmap-phase{font-family:var(--fm);font-size:.6rem;font-weight:700;color:var(--g3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.roadmap-period{font-size:.68rem;color:rgba(255,255,255,.3);font-style:italic;margin-bottom:.6rem}
+.roadmap-title{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.roadmap-items{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.roadmap-items li{font-size:.7rem;color:rgba(255,255,255,.45);display:flex;align-items:flex-start;gap:.4rem;line-height:1.4}
+.roadmap-items li::before{content:'→';color:var(--g2);flex-shrink:0}
+
+/* CTA & Footer */
+#contact-section{background:linear-gradient(135deg,var(--g1) 0%,var(--navy2) 55%);text-align:center;padding:7rem 2rem;position:relative;overflow:hidden}
+.cta-title{font-family:var(--fd);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem}
+.cta-title em{color:var(--gold2);font-style:normal}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.btn-gold{background:var(--gold);color:var(--navy);padding:.8rem 1.9rem;border-radius:8px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.45rem}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.35)}
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
+.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.65;margin-top:.6rem}
+.footer-title{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;font-family:var(--fm)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.footer-links a{color:rgba(255,255,255,.35);font-size:.78rem;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:.75rem 2rem 1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.25)}
+.footer-bottom strong{color:var(--gold)}
+#btt{position:fixed;bottom:1.75rem;right:1.75rem;width:42px;height:42px;background:var(--g2);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:999;transition:all .3s;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,154,68,.4)}
+#btt.visible{opacity:1;pointer-events:auto}
+#btt:hover{background:var(--g3);transform:translateY(-3px)}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner,.problem-top,.solution-header{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .impact-grid,.odd-row,.roadmap-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .charts-row{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .ai-grid{grid-template-columns:1fr}
+  .regions-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.hamburger{display:flex}
+  .hero-inner{text-align:center}
+  .hero-desc{max-width:100%;margin:0 auto 2rem}
+  .hero-btns{justify-content:center}.hero-flag,.hero-chip{justify-content:center}
+  .dash-sidebar{display:none}.dash-main{margin-left:0}
+}
+@media(max-width:640px){
+  .features-grid,.impact-grid,.odd-row,.roadmap-grid,.prob-map-row,.kpi-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .flux-row{flex-direction:column;gap:.5rem}.flux-arrow{transform:rotate(90deg)}
+  section{padding:3.5rem 1.25rem}
+  .regions-grid{grid-template-columns:1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ SPA SHELL ════════════════════ -->
+<div class="app-page active" id="page-landing">
+
+
+<!-- PRICE TICKER -->
+<div class="price-ticker" id="priceTicker" style="position:fixed;top:0;left:0;right:0;z-index:1001;background:linear-gradient(90deg,var(--navy),var(--navy2));padding:.4rem 0;overflow:hidden;border-bottom:1px solid rgba(0,154,68,.15)">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="nav" style="top:28px">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#home">
+      <div class="logo-mark"><span></span><span></span><span></span><span></span></div>
+      <span class="logo-text">Naatangu Prix</span>
+      <span class="logo-badge">NTP</span>
+    </a>
+    <div class="nav-links">
+      <a href="#probleme" class="nav-link">Le Problème</a>
+      <a href="#solution" class="nav-link">Solution</a>
+      <a href="#espaces" class="nav-link">Espaces</a>
+      <a href="#ussd-section" class="nav-link">USSD</a>
+      <a href="#impact" class="nav-link">Impact</a>
+      <a href="#monde" class="nav-link">Monde</a>
+      <a href="#page-login" class="nav-link nav-cta" onclick="document.getElementById('page-login').style.display='block'; document.getElementById('page-landing').style.display='none'; window.scrollTo(0,0); return false;">Connexion →</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn on" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a class="mobile-link" href="#probleme" onclick="toggleMenu()">Le Problème</a>
+  <a class="mobile-link" href="#solution" onclick="toggleMenu()">Solution</a>
+  <a class="mobile-link" href="#espaces" onclick="toggleMenu()">3 Espaces</a>
+  <a class="mobile-link" href="#ussd-section" onclick="toggleMenu()">USSD</a>
+  <a class="mobile-link" href="#impact" onclick="toggleMenu()">Impact</a>
+  <a class="mobile-link" href="#monde" onclick="toggleMenu()">Monde</a>
+  <a class="mobile-link" href="#page-login" style="color:var(--g3);font-weight:700;border-color:rgba(0,154,68,.3)" onclick="toggleMenu(); document.getElementById('page-login').style.display='block'; document.getElementById('page-landing').style.display='none'; window.scrollTo(0,0); return false;">Connexion →</a>
+</div>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-circles">
+      <div class="hc hc1"></div>
+      <div class="hc hc2"></div>
+      <div class="hc hc3"></div>
+    </div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-flag"><span class="f-red"></span><span class="f-gold"></span><span class="f-green"></span></div>
+        <div class="hero-chip" data-fr="🇸🇳 Sénégal — Prix SMSI 2026 — UIT" data-en="🇸🇳 Senegal — WSIS Prize 2026 — ITU">🇸🇳 Sénégal — Prix SMSI 2026 — UIT</div>
+        <h1 class="hero-h1">Naatangu<br><em>Prix</em></h1>
+        <p class="hero-subtitle" data-fr="Prix Transparent — Prix Juste" data-en="Transparent Price — Fair Price">Prix Transparent — Prix Juste</p>
+        <p class="hero-desc" data-fr="La première plateforme numérique tripartite au monde connectant l'État, les commerçants et les citoyens autour d'une seule vérité : le prix juste." data-en="The world's first tripartite digital platform connecting government, merchants and citizens around one single truth: the fair price.">La première plateforme numérique tripartite au monde connectant l'État, les commerçants et les citoyens autour d'une seule vérité : le prix juste.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="document.getElementById('page-login').style.display='block'; document.getElementById('page-landing').style.display='none'; window.scrollTo(0,0);" data-fr="Accéder à la plateforme →" data-en="Access the platform →">Accéder à la plateforme →</button>
+          <a href="#espaces" class="btn-outline" data-fr="Découvrir les espaces" data-en="Explore spaces">Découvrir les espaces</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-stats">
+          <div class="hstat"><div class="hstat-num g">2,8Mrd</div><div class="hstat-label" data-fr="Bénéficiaires potentiels mondiaux" data-en="Potential global beneficiaries">Bénéficiaires potentiels mondiaux</div><div class="hstat-tag">87 pays</div></div>
+          <div class="hstat"><div class="hstat-num y">40%</div><div class="hstat-label" data-fr="Écart prix officiel vs marché" data-en="Gap: official price vs market">Écart prix officiel vs marché</div><div class="hstat-tag">→ objectif 10%</div></div>
+          <div class="hstat"><div class="hstat-num">17M</div><div class="hstat-label" data-fr="Citoyens sénégalais protégés" data-en="Senegalese citizens protected">Citoyens sénégalais protégés</div><div class="hstat-tag">Phase 1</div></div>
+          <div class="hstat"><div class="hstat-num g">60s</div><div class="hstat-label" data-fr="Ministère → commerçant" data-en="Ministry → merchant">Ministère → commerçant</div><div class="hstat-tag">Temps réel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="smsi-strip">
+    <div class="smsi-dots"><span></span><span></span><span></span></div>
+    <p data-fr="<strong>Prix SMSI 2026</strong> — Union Internationale des Télécommunications & 50 Organisations des Nations Unies" data-en="<strong>WSIS Prize 2026</strong> — International Telecommunication Union & 50 UN Organizations"><strong>Prix SMSI 2026</strong> — Union Internationale des Télécommunications & 50 Organisations des Nations Unies</p>
+    <p data-fr="Ligne d'action <strong>C7</strong> — Applications TIC · e-Gouvernance" data-en="Action line <strong>C7</strong> — ICT Applications · e-Governance">Ligne d'action <strong>C7</strong> — Applications TIC · e-Gouvernance</p>
+    <div class="smsi-dots"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROBLÈME ══════════════════════ -->
+<section id="probleme">
+  <div class="container">
+    <div class="section-label reveal" data-fr="Le problème" data-en="The problem">Le problème</div>
+    <h2 class="section-title reveal" data-fr="Un fossé numérique qui coûte <em>des milliards</em>" data-en="A digital gap that costs <em>billions</em>">Un fossé numérique qui coûte <em>des milliards</em></h2>
+    <p class="section-sub reveal" data-fr="Dans 87 pays, les gouvernements fixent des prix officiels sur les biens essentiels. Ces décisions restent lettre morte faute d'un outil numérique de diffusion en temps réel." data-en="In 87 countries, governments set official prices on essential goods. These decisions remain ineffective for lack of a real-time digital broadcasting tool.">Dans 87 pays, les gouvernements fixent des prix officiels sur les biens essentiels. Ces décisions restent lettre morte faute d'un outil numérique de diffusion en temps réel.</p>
+    <div class="problem-top">
+      <div class="aminata-card reveal">
+        <p class="aminata-quote" data-fr="« Ce matin, je suis allée au marché acheter du riz pour mes quatre enfants. Je ne savais pas que le gouvernement avait baissé le prix il y a dix jours. J'ai payé 15 000 FCFA de trop. »" data-en="'This morning, I went to the market to buy rice for my four children. I didn't know the government had lowered the price ten days ago. I overpaid 15,000 FCFA.'">« Ce matin, je suis allée au marché acheter du riz pour mes quatre enfants. Je ne savais pas que le gouvernement avait baissé le prix il y a dix jours. J'ai payé 15 000 FCFA de trop. »</p>
+        <div class="aminata-author">
+          <div class="aminata-avatar">A</div>
+          <div class="aminata-info">
+            <strong>Aminata Diallo</strong>
+            <span data-fr="Mère de famille — Pikine, Dakar" data-en="Mother of 4 — Pikine, Dakar">Mère de famille — Pikine, Dakar</span>
+          </div>
+        </div>
+      </div>
+      <div class="problem-numbers reveal reveal-delay-1">
+        <div class="prob-num-card">
+          <div class="prob-big-num">40%</div>
+          <div class="prob-desc"><strong data-fr="Écart moyen constaté" data-en="Average gap observed">Écart moyen constaté</strong><span data-fr="Entre prix officiel et prix pratiqué sur les marchés sénégalais" data-en="Between official price and market price in Senegal">Entre prix officiel et prix pratiqué sur les marchés sénégalais</span></div>
+        </div>
+        <div class="prob-num-card danger">
+          <div class="prob-big-num">3,4M</div>
+          <div class="prob-desc"><strong data-fr="Ménages touchés" data-en="Households affected">Ménages touchés</strong><span data-fr="Par la spéculation alimentaire chaque mois au Sénégal" data-en="By food speculation every month in Senegal">Par la spéculation alimentaire chaque mois au Sénégal</span></div>
+        </div>
+        <div class="prob-num-card warn">
+          <div class="prob-big-num">21j</div>
+          <div class="prob-desc"><strong data-fr="Délai de diffusion moyen" data-en="Average broadcast delay">Délai de diffusion moyen</strong><span data-fr="Entre une baisse officielle et son application effective sur les marchés" data-en="Between an official price cut and its effective application on markets">Entre une baisse officielle et son application effective sur les marchés</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="prob-map-row">
+      <div class="prob-region reveal"><div class="prob-region-num">15</div><div class="prob-region-name" data-fr="Pays CEDEAO" data-en="ECOWAS Countries">Pays CEDEAO</div><div class="prob-region-pop">380 millions</div></div>
+      <div class="prob-region reveal reveal-delay-1"><div class="prob-region-num">35+</div><div class="prob-region-name" data-fr="Afrique subsaharienne" data-en="Sub-Saharan Africa">Afrique subsaharienne</div><div class="prob-region-pop">700 millions</div></div>
+      <div class="prob-region reveal reveal-delay-2"><div class="prob-region-num">8</div><div class="prob-region-name" data-fr="Asie du Sud" data-en="South Asia">Asie du Sud</div><div class="prob-region-pop">1,5 milliard</div></div>
+      <div class="prob-region reveal reveal-delay-3"><div class="prob-region-num">87</div><div class="prob-region-name" data-fr="Pays concernés total" data-en="Total countries affected">Pays concernés total</div><div class="prob-region-pop">2,8 milliards</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SOLUTION ══════════════════════ -->
+<section id="solution">
+  <div class="container">
+    <div class="section-label reveal" data-fr="La solution" data-en="The solution">La solution</div>
+    <div class="solution-header">
+      <div class="big-word reveal">La<br><em>seule</em><br>solution</div>
+      <div class="reveal reveal-delay-1">
+        <h2 class="section-title" style="margin-bottom:1rem" data-fr="Naatangu Prix — <em>NTP</em>" data-en="Naatangu Prix — <em>NTP</em>">Naatangu Prix — <em>NTP</em></h2>
+        <div class="solution-promise">
+          <p data-fr="Pour la première fois, une décision gouvernementale sur les prix atteint simultanément le téléphone de chaque commerçant ET de chaque citoyen — en moins de 60 secondes. Sans smartphone. Sans internet." data-en="For the first time, a government price decision simultaneously reaches every merchant's AND every citizen's phone — in less than 60 seconds. No smartphone. No internet.">Pour la première fois, une décision gouvernementale sur les prix atteint simultanément le téléphone de chaque commerçant ET de chaque citoyen — en moins de 60 secondes. Sans smartphone. Sans internet.</p>
+          <div class="sp-time"><span data-fr="Ministère → commerçant : 60s" data-en="Ministry → merchant: 60s">Ministère → commerçant : 60s</span><span data-fr="Alerte → citoyen : 5 min" data-en="Alert → citizen: 5 min">Alerte → citoyen : 5 min</span></div>
+        </div>
+        <p class="section-sub" data-fr="Naatangu Prix n'est pas un projet sénégalais. C'est un bien commun numérique pour 2,8 milliards de personnes vivant dans des économies à régulation étatique." data-en="Naatangu Prix is not a Senegalese project. It is a digital common good for 2.8 billion people living in state-regulated economies.">Naatangu Prix n'est pas un projet sénégalais. C'est un bien commun numérique pour 2,8 milliards de personnes vivant dans des économies à régulation étatique.</p>
+      </div>
+    </div>
+    <div class="flux-block reveal">
+      <div class="flux-label" data-fr="Flux de transparence en temps réel" data-en="Real-time transparency flow">Flux de transparence en temps réel</div>
+      <div class="flux-row">
+        <div class="flux-node"><div class="fn-ico">🏛️</div><div class="fn-name" data-fr="Ministère" data-en="Ministry">Ministère</div><div class="fn-sub" data-fr="Fixe le prix officiel" data-en="Sets official price">Fixe le prix officiel</div></div>
+        <div class="flux-arrow">→</div>
+        <div class="flux-node accent"><div class="fn-ico">⚡</div><div class="fn-name">NTP</div><div class="fn-sub" data-fr="Diffusion 60 secondes" data-en="Broadcast 60 seconds">Diffusion 60 secondes</div></div>
+        <div class="flux-arrow">→</div>
+        <div class="flux-node"><div class="fn-ico">🏪</div><div class="fn-name" data-fr="Commerçant" data-en="Merchant">Commerçant</div><div class="fn-sub" data-fr="Reçoit alerte SMS" data-en="Receives SMS alert">Reçoit alerte SMS</div></div>
+        <div class="flux-arrow">→</div>
+        <div class="flux-node"><div class="fn-ico">👥</div><div class="fn-name" data-fr="Citoyen" data-en="Citizen">Citoyen</div><div class="fn-sub" data-fr="Vérifie & signale" data-en="Checks & reports">Vérifie & signale</div></div>
+        <div class="flux-arrow">→</div>
+        <div class="flux-node accent"><div class="fn-ico">🤖</div><div class="fn-name">IA</div><div class="fn-sub" data-fr="Détecte les écarts" data-en="Detects discrepancies">Détecte les écarts</div></div>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal"><div class="feat-icon-wrap">🏛️</div><h3 data-fr="Espace Ministère" data-en="Ministry Space">Espace Ministère</h3><p data-fr="Fixation et publication des prix officiels en temps réel. Tableau de bord national par région et par produit." data-en="Setting and publishing official prices in real time. National dashboard by region and product.">Fixation et publication des prix officiels en temps réel. Tableau de bord national par région et par produit.</p><span class="feat-badge" data-fr="Gouvernance" data-en="Governance">Gouvernance</span></div>
+      <div class="feat-card reveal reveal-delay-1"><div class="feat-icon-wrap">🏪</div><h3 data-fr="Espace Commerçants" data-en="Merchant Space">Espace Commerçants</h3><p data-fr="Enregistrement NINEA, affichage des prix pratiqués, alertes SMS/push, badge Boutique Conforme certifié." data-en="NINEA registration, price display, SMS/push alerts, certified Compliant Shop badge.">Enregistrement NINEA, affichage des prix pratiqués, alertes SMS/push, badge Boutique Conforme certifié.</p><span class="feat-badge" data-fr="Conformité" data-en="Compliance">Conformité</span></div>
+      <div class="feat-card reveal reveal-delay-2"><div class="feat-icon-wrap">👥</div><h3 data-fr="Espace Citoyens" data-en="Citizen Space">Espace Citoyens</h3><p data-fr="Consultation des prix par zone, comparaison géolocalisée des boutiques, signalement anonyme des abus." data-en="Price consultation by zone, geolocated shop comparison, anonymous abuse reporting.">Consultation des prix par zone, comparaison géolocalisée des boutiques, signalement anonyme des abus.</p><span class="feat-badge" data-fr="Protection" data-en="Protection">Protection</span></div>
+      <div class="feat-card reveal"><div class="feat-icon-wrap">🤖</div><h3 data-fr="Contrôle IA" data-en="AI Control">Contrôle IA</h3><p data-fr="Détection automatique des écarts, cartographie prédictive des zones à risque, aide aux inspecteurs." data-en="Automatic discrepancy detection, predictive mapping of risk zones, inspector support.">Détection automatique des écarts, cartographie prédictive des zones à risque, aide aux inspecteurs.</p><span class="feat-badge" data-fr="Intelligence" data-en="Intelligence">Intelligence</span></div>
+      <div class="feat-card reveal reveal-delay-1"><div class="feat-icon-wrap">📍</div><h3 data-fr="Géolocalisation" data-en="Geolocation">Géolocalisation</h3><p data-fr="Comparaison des boutiques les plus proches en temps réel. Densité des contrôles ciblée par zone." data-en="Real-time comparison of nearest shops. Targeted control density by zone.">Comparaison des boutiques les plus proches en temps réel. Densité des contrôles ciblée par zone.</p><span class="feat-badge" data-fr="Précision" data-en="Precision">Précision</span></div>
+      <div class="feat-card reveal reveal-delay-2"><div class="feat-icon-wrap">🌍</div><h3 data-fr="Open Source" data-en="Open Source">Open Source</h3><p data-fr="Code source ouvert. N'importe quel pays peut déployer sa propre instance gratuitement. Adaptable en 87 langues." data-en="Open source code. Any country can deploy its own instance for free. Adaptable in 87 languages.">Code source ouvert. N'importe quel pays peut déployer sa propre instance gratuitement.</p><span class="feat-badge" data-fr="Réplicable" data-en="Replicable">Réplicable</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 3 ESPACES ══════════════════════ -->
+<section id="espaces" style="background:var(--navy)">
+  <div class="container on-dark">
+    <div class="section-label reveal" data-fr="3 espaces dédiés" data-en="3 dedicated spaces">3 espaces dédiés</div>
+    <h2 class="section-title reveal" data-fr="Choisissez votre <em>espace</em>" data-en="Choose your <em>space</em>">Choisissez votre <em>espace</em></h2>
+    <div class="espaces-tabs reveal">
+      <button class="espace-tab active" onclick="showEspace('ministere',this)">🏛️ <span data-fr="Ministère" data-en="Ministry">Ministère</span></button>
+      <button class="espace-tab tab-gold" onclick="showEspace('commercant',this)">🏪 <span data-fr="Commerçant" data-en="Merchant">Commerçant</span></button>
+      <button class="espace-tab tab-blue" onclick="showEspace('citoyen',this)">👥 <span data-fr="Citoyen" data-en="Citizen">Citoyen</span></button>
+    </div>
+
+    <!-- MINISTÈRE PANEL -->
+    <div class="espaces-panel active" id="panel-ministere">
+      <div class="panel-info">
+        <h3 data-fr="Espace Ministère du Commerce" data-en="Ministry of Commerce Space">Espace Ministère du Commerce</h3>
+        <p data-fr="Tableau de bord national de contrôle des prix. Gérez les prix officiels, suivez la conformité par région, recevez les signalements citoyens et déployez l'IA pour des interventions ciblées." data-en="National price control dashboard. Manage official prices, monitor compliance by region, receive citizen reports and deploy AI for targeted interventions.">Tableau de bord national de contrôle des prix. Gérez les prix officiels, suivez la conformité par région, recevez les signalements citoyens et déployez l'IA pour des interventions ciblées.</p>
+        <ul class="panel-features">
+          <li data-fr="Fixation et mise à jour des prix officiels par produit et par région" data-en="Setting and updating official prices by product and region">Fixation et mise à jour des prix officiels par produit et par région</li>
+          <li data-fr="Publication instantanée des baisses validées → alerte tous les commerçants" data-en="Instant publication of validated price cuts → alerts all merchants">Publication instantanée des baisses validées → alerte tous les commerçants</li>
+          <li data-fr="Tableau de bord de suivi en temps réel sur 14 régions" data-en="Real-time monitoring dashboard across 14 regions">Tableau de bord de suivi en temps réel sur 14 régions</li>
+          <li data-fr="Réception et traitement des signalements citoyens géolocalisés" data-en="Receipt and processing of geolocated citizen reports">Réception et traitement des signalements citoyens géolocalisés</li>
+          <li data-fr="Module IA : carte des zones à risque avec prédiction des abus" data-en="AI module: risk zone map with abuse prediction">Module IA : carte des zones à risque avec prédiction des abus</li>
+          <li data-fr="Rapports automatisés pour les décideurs politiques" data-en="Automated reports for policy makers">Rapports automatisés pour les décideurs politiques</li>
+        </ul>
+      </div>
+      <div class="panel-mockup">
+        <div class="pm-header">
+          <div class="pm-header-title">🏛️ Ministère du Commerce — Dashboard</div>
+          <div class="pm-header-badge">● Temps réel</div>
+        </div>
+        <div class="pm-body">
+          <div class="pm-kpi-row">
+            <div class="pm-kpi"><div class="pm-kpi-val g">4 382</div><div class="pm-kpi-label">Boutiques conformes</div></div>
+            <div class="pm-kpi"><div class="pm-kpi-val y">147</div><div class="pm-kpi-label">Signalements actifs</div></div>
+            <div class="pm-kpi"><div class="pm-kpi-val r">8,3%</div><div class="pm-kpi-label">Non-conformité</div></div>
+          </div>
+          <table class="pm-table">
+            <tr><th>Produit</th><th>Marché</th><th>Officiel</th><th>Écart</th><th>Statut</th></tr>
+            <tr><td>🌾 Riz brisé</td><td>425 F/kg</td><td>300 F/kg</td><td><span class="price-badge bad">+41%</span></td><td><span class="status-dot r">Alerte</span></td></tr>
+            <tr><td>🫙 Huile végétale</td><td>1 150 F/L</td><td>1 000 F/L</td><td><span class="price-badge warn">+15%</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+            <tr><td>🍬 Sucre</td><td>620 F/kg</td><td>600 F/kg</td><td><span class="price-badge ok">+3%</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+            <tr><td>🧅 Oignon</td><td>290 F/kg</td><td>250 F/kg</td><td><span class="price-badge warn">+16%</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+            <tr><td>🍞 Farine</td><td>310 F/kg</td><td>310 F/kg</td><td><span class="price-badge ok">0%</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMERÇANT PANEL -->
+    <div class="espaces-panel" id="panel-commercant">
+      <div class="panel-info">
+        <h3 data-fr="Espace Boutiques & Commerçants" data-en="Shops & Merchants Space">Espace Boutiques & Commerçants</h3>
+        <p data-fr="Interface personnalisée pour chaque commerçant enregistré. Recevez les alertes officielles, affichez vos prix conformes et obtenez votre badge de certification visible par tous les clients." data-en="Personalized interface for each registered merchant. Receive official alerts, display your compliant prices and get your certification badge visible to all customers.">Interface personnalisée pour chaque commerçant enregistré. Recevez les alertes officielles, affichez vos prix conformes et obtenez votre badge de certification visible par tous les clients.</p>
+        <ul class="panel-features">
+          <li class="gold" data-fr="Enregistrement officiel via NINEA ou carte de commerçant" data-en="Official registration via NINEA or merchant card">Enregistrement officiel via NINEA ou carte de commerçant</li>
+          <li class="gold" data-fr="Affichage numérique obligatoire des prix pratiqués" data-en="Mandatory digital display of prices practiced">Affichage numérique obligatoire des prix pratiqués</li>
+          <li class="gold" data-fr="Notifications push ET SMS lors de chaque changement officiel" data-en="Push AND SMS notifications for every official change">Notifications push ET SMS lors de chaque changement officiel</li>
+          <li class="gold" data-fr="Badge « Boutique Conforme » visible par tous les clients" data-en="'Compliant Shop' badge visible to all customers">Badge « Boutique Conforme » visible par tous les clients</li>
+          <li class="gold" data-fr="Tableau de conformité personnel avec historique" data-en="Personal compliance dashboard with history">Tableau de conformité personnel avec historique</li>
+          <li class="gold" data-fr="Accès aux formations et guides de bonnes pratiques" data-en="Access to training and best practice guides">Accès aux formations et guides de bonnes pratiques</li>
+        </ul>
+      </div>
+      <div class="panel-mockup">
+        <div class="pm-header">
+          <div class="pm-header-title">🏪 Moussa Ba — Sandaga, Dakar</div>
+          <div class="pm-header-badge gold">✓ Boutique Conforme</div>
+        </div>
+        <div class="pm-body">
+          <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:.85rem;margin-bottom:.85rem;display:flex;gap:.75rem;align-items:center">
+            <span style="font-size:1.1rem">🔔</span>
+            <div><div style="font-size:.75rem;font-weight:700;color:var(--gold2)" data-fr="Nouveau prix officiel — Riz brisé : 300 FCFA/kg" data-en="New official price — Broken rice: 300 FCFA/kg">Nouveau prix officiel — Riz brisé : 300 FCFA/kg</div><div style="font-size:.65rem;color:rgba(255,255,255,.4);margin-top:.15rem" data-fr="Mise à jour requise — il y a 5 minutes" data-en="Update required — 5 minutes ago">Mise à jour requise — il y a 5 minutes</div></div>
+            <button style="margin-left:auto;background:var(--g2);color:#fff;border:none;border-radius:6px;padding:.35rem .75rem;font-size:.68rem;font-weight:700;cursor:pointer;font-family:var(--fb)" data-fr="Confirmer" data-en="Confirm">Confirmer</button>
+          </div>
+          <div class="notif-list">
+            <div class="notif-item"><div class="notif-ico g">✓</div><div><div class="notif-text" data-fr="Sucre cristallisé — Prix officiel 600 FCFA/kg respecté" data-en="Crystallized sugar — Official price 600 FCFA/kg respected">Sucre cristallisé — Prix officiel 600 FCFA/kg respecté</div><div class="notif-time" data-fr="Il y a 2 heures" data-en="2 hours ago">Il y a 2 heures</div></div></div>
+            <div class="notif-item"><div class="notif-ico g">🏅</div><div><div class="notif-text" data-fr="Badge Boutique Conforme renouvelé — Taux de conformité : 87%" data-en="Compliant Shop badge renewed — Compliance rate: 87%">Badge Boutique Conforme renouvelé — Taux de conformité : 87%</div><div class="notif-time" data-fr="Aujourd'hui 09:14" data-en="Today 09:14">Aujourd'hui 09:14</div></div></div>
+            <div class="notif-item"><div class="notif-ico y">👁️</div><div><div class="notif-text" data-fr="3 clients ont vérifié vos prix via l'application aujourd'hui" data-en="3 customers checked your prices via the app today">3 clients ont vérifié vos prix via l'application aujourd'hui</div><div class="notif-time" data-fr="Aujourd'hui 08:32" data-en="Today 08:32">Aujourd'hui 08:32</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CITOYEN PANEL -->
+    <div class="espaces-panel" id="panel-citoyen">
+      <div class="panel-info">
+        <h3 data-fr="Espace Acheteurs & Citoyens" data-en="Buyers & Citizens Space">Espace Acheteurs & Citoyens</h3>
+        <p data-fr="Accédez aux prix officiels, comparez les boutiques proches de chez vous, recevez des alertes automatiques et signalez anonymement tout abus constaté. En français et en Wolof." data-en="Access official prices, compare nearby shops, receive automatic alerts and anonymously report any observed abuse. In French and Wolof.">Accédez aux prix officiels, comparez les boutiques proches de chez vous, recevez des alertes automatiques et signalez anonymement tout abus constaté. En français et en Wolof.</p>
+        <ul class="panel-features">
+          <li class="blue" data-fr="Consultation des prix officiels par produit et par zone" data-en="Consultation of official prices by product and zone">Consultation des prix officiels par produit et par zone</li>
+          <li class="blue" data-fr="Comparaison géolocalisée des boutiques les plus proches" data-en="Geolocated comparison of nearest shops">Comparaison géolocalisée des boutiques les plus proches</li>
+          <li class="blue" data-fr="Alertes automatiques en cas de baisse de prix sur vos favoris" data-en="Automatic alerts for price drops on your favorites">Alertes automatiques en cas de baisse de prix sur vos favoris</li>
+          <li class="blue" data-fr="Signalement anonyme avec photo et localisation GPS" data-en="Anonymous reporting with photo and GPS location">Signalement anonyme avec photo et localisation GPS</li>
+          <li class="blue" data-fr="Interface entièrement en Français ET en Wolof" data-en="Interface fully in French AND Wolof">Interface entièrement en Français ET en Wolof</li>
+          <li class="blue" data-fr="Accès via app mobile, web, SMS ou USSD *123#" data-en="Access via mobile app, web, SMS or USSD *123#">Accès via app mobile, web, SMS ou USSD *123#</li>
+        </ul>
+      </div>
+      <div class="panel-mockup">
+        <div class="pm-header">
+          <div class="pm-header-title">👥 <span data-fr="Aminata — Pikine, Dakar" data-en="Aminata — Pikine, Dakar">Aminata — Pikine, Dakar</span></div>
+          <div class="pm-header-badge blue" data-fr="📍 Prix proches de vous" data-en="📍 Prices near you">📍 Prix proches de vous</div>
+        </div>
+        <div class="pm-body">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:.85rem;margin-bottom:.85rem">
+            <div style="font-size:.62rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem" data-fr="Riz brisé — Prix officiel aujourd'hui" data-en="Broken rice — Official price today">Riz brisé — Prix officiel aujourd'hui</div>
+            <div style="font-family:var(--fd);font-size:1.6rem;font-weight:900;color:var(--g3)">300 FCFA<span style="font-size:.75rem;color:rgba(255,255,255,.3);font-family:var(--fb);font-weight:400">/kg</span></div>
+            <div style="font-size:.65rem;color:rgba(255,255,255,.35);margin-top:.2rem" data-fr="Mis à jour il y a 5 min" data-en="Updated 5 min ago">Mis à jour il y a 5 min</div>
+          </div>
+          <div class="boutique-row">
+            <div class="bout-rank-badge r1">1</div>
+            <div class="bout-info"><div class="bout-name" data-fr="Épicerie Touba" data-en="Épicerie Touba">Épicerie Touba</div><div class="bout-dist">📍 180m · <span class="bout-conf">✓ Conforme</span></div></div>
+            <div><div class="bout-price-val">300 F</div><div class="bout-price-diff ok" data-fr="= Prix officiel" data-en="= Official price">= Prix officiel</div></div>
+          </div>
+          <div class="boutique-row">
+            <div class="bout-rank-badge r2">2</div>
+            <div class="bout-info"><div class="bout-name" data-fr="Chez Mamadou" data-en="Chez Mamadou">Chez Mamadou</div><div class="bout-dist">📍 340m · <span class="bout-conf">✓ Conforme</span></div></div>
+            <div><div class="bout-price-val">310 F</div><div class="bout-price-diff bad">+10 F</div></div>
+          </div>
+          <div class="boutique-row">
+            <div class="bout-rank-badge r3">3</div>
+            <div class="bout-info"><div class="bout-name" data-fr="Mini-marché Liberté" data-en="Mini-marché Liberté">Mini-marché Liberté</div><div class="bout-dist" data-fr="📍 520m · Signalé ⚠️" data-en="📍 520m · Reported ⚠️">📍 520m · Signalé ⚠️</div></div>
+            <div><div class="bout-price-val" style="color:var(--red2)">425 F</div><div class="bout-price-diff bad">+125 F</div></div>
+          </div>
+          <div class="signal-form-pm" style="margin-top:.85rem">
+            <select>
+              <option data-fr="🚨 Signaler un abus..." data-en="🚨 Report an abuse...">🚨 Signaler un abus...</option>
+              <option>🌾 Riz brisé</option>
+              <option>🫙 Huile végétale</option>
+              <option>🍬 Sucre</option>
+            </select>
+            <div class="signal-actions-row">
+              <div class="sig-upload" data-fr="📸 Photo" data-en="📸 Photo">📸 Photo</div>
+              <div class="sig-upload" data-fr="📍 Localisation" data-en="📍 Location">📍 Localisation</div>
+              <button class="sig-submit-btn" data-fr="Signaler anonymement" data-en="Report anonymously">Signaler anonymement</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ USSD ══════════════════════ -->
+<section id="ussd-section" style="background:var(--navy2)">
+  <div class="container on-dark">
+    <div class="ussd-layout">
+      <div class="ussd-device-wrap reveal">
+        <div class="ussd-phone">
+          <div class="ussd-topbar"><span>Naatangu Prix</span><span id="utime">09:41</span></div>
+          <div class="ussd-screen" id="uscreen">
+            <div class="ussd-dim">NAATANGU PRIX</div>
+            <div class="ussd-dim">*123# — Menu principal</div>
+            <div class="ussd-sep">━━━━━━━━━━━━━━━━</div>
+            <div>1. Prix officiels du jour</div>
+            <div>2. Boutiques proches</div>
+            <div>3. Signaler un abus</div>
+            <div>4. Mes alertes prix</div>
+            <div>0. Quitter</div>
+            <div class="ussd-sep">━━━━━━━━━━━━━━━━</div>
+            <div>> <span id="uinput"></span><span class="ussd-cursor">_</span></div>
+          </div>
+          <div class="ussd-keypad">
+            <button class="ukey" onclick="uk('1')">1</button>
+            <button class="ukey" onclick="uk('2')">2</button>
+            <button class="ukey" onclick="uk('3')">3</button>
+            <button class="ukey" onclick="uk('4')">4</button>
+            <button class="ukey" onclick="uk('5')">5</button>
+            <button class="ukey" onclick="uk('6')">6</button>
+            <button class="ukey" onclick="uk('7')">7</button>
+            <button class="ukey" onclick="uk('8')">8</button>
+            <button class="ukey" onclick="uk('9')">9</button>
+            <button class="ukey del" onclick="udel()">⌫</button>
+            <button class="ukey" onclick="uk('0')">0</button>
+            <button class="ukey ok" onclick="usend()">OK ↵</button>
+          </div>
+        </div>
+        <div style="font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.25);text-align:center" data-fr="Essayez : tapez 1 puis OK" data-en="Try: type 1 then OK">Essayez : tapez 1 puis OK</div>
+      </div>
+      <div class="ussd-info reveal reveal-delay-1">
+        <div class="section-label on-dark" data-fr="Inclusion zéro-barrière" data-en="Zero-barrier inclusion">Inclusion zéro-barrière</div>
+        <h2 class="section-title" style="color:#fff;margin-bottom:.85rem">Fonctionne sur <em style="color:var(--g3)">tout</em> téléphone</h2>
+        <p data-fr="90% des solutions numériques nécessitent un smartphone et internet. Naatangu Prix fonctionne via SMS et USSD *123# — sans internet, sans application, sans smartphone. Accessible même en zone rurale avec réseau 2G." data-en="90% of digital solutions require a smartphone and internet. Naatangu Prix works via SMS and USSD *123# — no internet, no app, no smartphone. Accessible even in rural areas with 2G network.">90% des solutions numériques nécessitent un smartphone et internet. Naatangu Prix fonctionne via SMS et USSD *123# — sans internet, sans application, sans smartphone. Accessible même en zone rurale avec réseau 2G.</p>
+        <div class="ussd-pts">
+          <div class="ussd-pt"><div class="ussd-pt-icon g">📱</div><div><h4 data-fr="Application mobile" data-en="Mobile application">Application mobile</h4><p data-fr="Smartphone + internet pour les classes moyennes urbaines" data-en="Smartphone + internet for urban middle classes">Smartphone + internet pour les classes moyennes urbaines</p></div></div>
+          <div class="ussd-pt"><div class="ussd-pt-icon y">💬</div><div><h4>SMS</h4><p data-fr="Téléphone basique — commerçants ruraux et semi-urbains" data-en="Basic phone — rural and semi-urban merchants">Téléphone basique — commerçants ruraux et semi-urbains</p></div></div>
+          <div class="ussd-pt"><div class="ussd-pt-icon g">*️⃣</div><div><h4>USSD *123#</h4><p data-fr="Aucun internet requis — populations non connectées partout en Afrique" data-en="No internet required — unconnected populations everywhere in Africa">Aucun internet requis — populations non connectées partout</p></div></div>
+          <div class="ussd-pt"><div class="ussd-pt-icon y">🗣️</div><div><h4 data-fr="Interface en Wolof" data-en="Interface in Wolof">Interface en Wolof</h4><p data-fr="Accessible aux non-lettrés via interface vocale en langue locale" data-en="Accessible to the illiterate via voice interface in local language">Accessible aux non-lettrés via interface vocale en langue locale</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ IMPACT ══════════════════════ -->
+<section id="impact" style="background:var(--off)">
+  <div class="container">
+    <div class="impact-top">
+      <div>
+        <div class="section-label reveal" data-fr="Impact mesurable" data-en="Measurable impact">Impact mesurable</div>
+        <h2 class="section-title reveal" data-fr="Des résultats <em>concrets</em>" data-en="<em>Concrete</em> results">Des résultats <em>concrets</em></h2>
+      </div>
+      <p class="section-sub reveal" style="margin:0" data-fr="Des indicateurs chiffrés pour chaque étape de déploiement — du pilote de Dakar au déploiement mondial." data-en="Numbered indicators for each deployment stage — from the Dakar pilot to global rollout.">Des indicateurs chiffrés pour chaque étape de déploiement — du pilote de Dakar au déploiement mondial.</p>
+    </div>
+    <div class="impact-grid" id="impact-grid">
+      <div class="imp-card reveal"><div class="imp-num">5 000</div><div class="imp-unit" data-fr="Boutiques enregistrées — An 1" data-en="Registered shops — Year 1">Boutiques enregistrées — An 1</div><div class="imp-bar"><div class="imp-fill" data-w="60"></div></div><div class="imp-desc" data-fr="Dakar et banlieue — Phase pilote" data-en="Dakar and suburbs — Pilot phase">Dakar et banlieue — Phase pilote</div></div>
+      <div class="imp-card reveal reveal-delay-1"><div class="imp-num">200K</div><div class="imp-unit" data-fr="Utilisateurs actifs — An 1" data-en="Active users — Year 1">Utilisateurs actifs — An 1</div><div class="imp-bar"><div class="imp-fill" data-w="45"></div></div><div class="imp-desc" data-fr="Alertes prix reçues en temps réel" data-en="Real-time price alerts received">Alertes prix reçues en temps réel</div></div>
+      <div class="imp-card reveal reveal-delay-2"><div class="imp-num">15K</div><div class="imp-unit" data-fr="FCFA économisés / ménage / mois" data-en="FCFA saved / household / month">FCFA économisés / ménage / mois</div><div class="imp-bar"><div class="imp-fill" data-w="75"></div></div><div class="imp-desc" data-fr="Pouvoir d'achat retrouvé par famille" data-en="Purchasing power restored per family">Pouvoir d'achat retrouvé par famille</div></div>
+      <div class="imp-card reveal reveal-delay-3"><div class="imp-num">-30%</div><div class="imp-unit" data-fr="Réduction écart de prix — 24 mois" data-en="Price gap reduction — 24 months">Réduction écart de prix — 24 mois</div><div class="imp-bar"><div class="imp-fill" data-w="85"></div></div><div class="imp-desc" data-fr="De 40% à moins de 10% d'écart" data-en="From 40% to less than 10% gap">De 40% à moins de 10% d'écart</div></div>
+    </div>
+    <div class="section-label reveal" style="margin-top:1rem" data-fr="Objectifs de Développement Durable" data-en="Sustainable Development Goals">Objectifs de Développement Durable</div>
+    <div class="odd-row">
+      <div class="odd-card c1 reveal"><div class="odd-num">1</div><div class="odd-name" data-fr="Pas de pauvreté" data-en="No poverty">Pas de pauvreté</div><div class="odd-desc" data-fr="Réduction du surcoût alimentaire pour les ménages vulnérables" data-en="Reduction of food surcharge for vulnerable households">Réduction du surcoût alimentaire pour les ménages vulnérables</div></div>
+      <div class="odd-card c2 reveal reveal-delay-1"><div class="odd-num">2</div><div class="odd-name" data-fr="Faim Zéro" data-en="Zero Hunger">Faim Zéro</div><div class="odd-desc" data-fr="Prix alimentaires accessibles = meilleure sécurité nutritionnelle" data-en="Accessible food prices = better nutritional security">Prix alimentaires accessibles = meilleure sécurité nutritionnelle</div></div>
+      <div class="odd-card c3 reveal reveal-delay-2"><div class="odd-num">10</div><div class="odd-name" data-fr="Inégalités réduites" data-en="Reduced inequalities">Inégalités réduites</div><div class="odd-desc" data-fr="Les plus pauvres paient plus cher — nous corrigeons cela" data-en="The poorest pay more — we correct this">Les plus pauvres paient plus cher — nous corrigeons cela</div></div>
+      <div class="odd-card c4 reveal reveal-delay-3"><div class="odd-num">16</div><div class="odd-name" data-fr="Institutions efficaces" data-en="Effective institutions">Institutions efficaces</div><div class="odd-desc" data-fr="Transparence numérique État-citoyen et lutte contre la corruption des prix" data-en="Digital State-citizen transparency and fight against price corruption">Transparence numérique État-citoyen et lutte contre la corruption</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ MONDE ══════════════════════ -->
+<section id="monde" style="background:var(--navy);text-align:center">
+  <div class="container on-dark">
+    <div class="section-label reveal" style="justify-content:center" data-fr="Potentiel mondial" data-en="Global potential">Potentiel mondial</div>
+    <h2 class="section-title reveal" data-fr="De Dakar <em>au Monde</em>" data-en="From Dakar <em>to the World</em>">De Dakar <em>au Monde</em></h2>
+    <p class="section-sub reveal" style="margin:0 auto 0" data-fr="Applicable dans tout pays où l'État fixe des prix officiels sur les biens essentiels — soit 87 pays représentant 2,8 milliards de bénéficiaires potentiels." data-en="Applicable in any country where the State sets official prices on essential goods — 87 countries representing 2.8 billion potential beneficiaries.">Applicable dans tout pays où l'État fixe des prix officiels sur les biens essentiels — soit 87 pays représentant 2,8 milliards de bénéficiaires potentiels.</p>
+    <div class="monde-big-num reveal">2,8Mrd</div>
+    <p class="monde-caption reveal" data-fr="bénéficiaires potentiels dans 87 pays en développement" data-en="potential beneficiaries in 87 developing countries">bénéficiaires potentiels dans 87 pays en développement</p>
+    <div class="regions-grid reveal">
+      <div class="region-box"><div class="region-name" data-fr="Afrique de l'Ouest" data-en="West Africa">Afrique de l'Ouest</div><div class="region-count">15</div><div class="region-pop">380 millions</div></div>
+      <div class="region-box"><div class="region-name" data-fr="Afrique subsaharienne" data-en="Sub-Saharan Africa">Afrique subsaharienne</div><div class="region-count">35+</div><div class="region-pop">700 millions</div></div>
+      <div class="region-box"><div class="region-name" data-fr="Asie du Sud" data-en="South Asia">Asie du Sud</div><div class="region-count">8</div><div class="region-pop">1,5 milliard</div></div>
+      <div class="region-box"><div class="region-name" data-fr="Amérique Latine" data-en="Latin America">Amérique Latine</div><div class="region-count">12</div><div class="region-pop">50 millions</div></div>
+      <div class="region-box"><div class="region-name" data-fr="Monde arabe" data-en="Arab World">Monde arabe</div><div class="region-count">17</div><div class="region-pop">150 millions</div></div>
+    </div>
+    <div class="roadmap-grid reveal">
+      <div class="roadmap-card" style="border-top:3px solid var(--gold)"><div class="roadmap-dot" style="background:var(--gold);border-color:var(--navy)"></div><div class="roadmap-phase">Phase 1</div><div class="roadmap-period" data-fr="2026 — T1-T2" data-en="2026 — Q1-Q2">2026 — T1-T2</div><div class="roadmap-title" data-fr="Pilote Dakar" data-en="Dakar Pilot">Pilote Dakar</div><ul class="roadmap-items"><li data-fr="500 boutiques" data-en="500 shops">500 boutiques</li><li data-fr="50 000 utilisateurs" data-en="50,000 users">50 000 utilisateurs</li><li data-fr="Partenariat Ministère" data-en="Ministry partnership">Partenariat Ministère</li></ul></div>
+      <div class="roadmap-card" style="border-top:3px solid var(--g2)"><div class="roadmap-dot" style="background:var(--g2);border-color:var(--navy)"></div><div class="roadmap-phase">Phase 2</div><div class="roadmap-period" data-fr="2026 — T3-T4" data-en="2026 — Q3-Q4">2026 — T3-T4</div><div class="roadmap-title" data-fr="National Sénégal" data-en="National Senegal">National Sénégal</div><ul class="roadmap-items"><li data-fr="14 régions" data-en="14 regions">14 régions</li><li data-fr="5 000 boutiques" data-en="5,000 shops">5 000 boutiques</li><li data-fr="Module IA activé" data-en="AI module activated">Module IA activé</li></ul></div>
+      <div class="roadmap-card" style="border-top:3px solid #7dd3fc"><div class="roadmap-dot" style="background:#7dd3fc;border-color:var(--navy)"></div><div class="roadmap-phase">Phase 3</div><div class="roadmap-period">2027</div><div class="roadmap-title" data-fr="CEDEAO" data-en="ECOWAS">CEDEAO</div><ul class="roadmap-items"><li data-fr="Mali, Côte d'Ivoire" data-en="Mali, Ivory Coast">Mali, Côte d'Ivoire</li><li data-fr="Burkina, Ghana" data-en="Burkina, Ghana">Burkina, Ghana</li><li data-fr="380 millions" data-en="380 million">380 millions</li></ul></div>
+      <div class="roadmap-card" style="border-top:3px solid var(--g3)"><div class="roadmap-dot" style="background:var(--g3);border-color:var(--navy)"></div><div class="roadmap-phase">Phase 4</div><div class="roadmap-period">2028+</div><div class="roadmap-title" data-fr="Mondial" data-en="Global">Mondial</div><ul class="roadmap-items"><li data-fr="87 pays" data-en="87 countries">87 pays</li><li data-fr="Open Source" data-en="Open Source">Open Source</li><li data-fr="2,8 milliards" data-en="2.8 billion">2,8 milliards</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CTA ══════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <h2 class="cta-title reveal" data-fr="Pour un Sénégal où chaque citoyen<br>connaît le <em>juste prix</em>" data-en="For a Senegal where every citizen<br>knows the <em>fair price</em>">Pour un Sénégal où chaque citoyen<br>connaît le <em>juste prix</em></h2>
+    <p class="cta-sub reveal" data-fr="Naatangu Prix ne se contente pas d'afficher des prix. Il reconstruit la confiance entre un État et son peuple — une notification à la fois." data-en="Naatangu Prix doesn't just display prices. It rebuilds trust between a State and its people — one notification at a time.">Naatangu Prix ne se contente pas d'afficher des prix. Il reconstruit la confiance entre un État et son peuple — une notification à la fois.</p>
+    <div class="cta-btns reveal">
+      <a class="btn-gold" href="mailto:contact@naatanguprix.sn">📧 <span data-fr="Nous contacter" data-en="Contact us">Nous contacter</span></a>
+      <a class="btn-outline" href="mailto:smsi2026@naatanguprix.sn" style="border-color:rgba(255,255,255,.3)">🏆 <span data-fr="Dossier SMSI 2026" data-en="WSIS 2026 Submission">Dossier SMSI 2026</span></a>
+    </div>
+    <div class="cta-contacts reveal">
+      <a class="cta-contact-item" href="mailto:contact@naatanguprix.sn">✉ contact@naatanguprix.sn</a>
+      <a class="cta-contact-item" href="mailto:smsi2026@naatanguprix.sn">🏆 smsi2026@naatanguprix.sn</a>
+      <a class="cta-contact-item" href="#">🌐 www.naatanguprix.sn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:.6rem">
+        <div class="logo-mark"><span></span><span></span><span></span><span></span></div>
+        <span class="logo-text">Naatangu Prix</span>
+        <span class="logo-badge">NTP</span>
+      </div>
+      <p data-fr="La première plateforme numérique tripartite pour la transparence des prix. Candidature officielle au Prix SMSI 2026 — UIT & Nations Unies." data-en="The world's first tripartite digital platform for price transparency. Official submission to WSIS Prize 2026 — ITU & United Nations.">La première plateforme numérique tripartite pour la transparence des prix. Candidature officielle au Prix SMSI 2026 — UIT & Nations Unies.</p>
+    </div>
+    <div>
+      <div class="footer-title" data-fr="Navigation" data-en="Navigation">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#probleme" data-fr="Le Problème" data-en="The Problem">Le Problème</a></li>
+        <li><a href="#solution" data-fr="La Solution" data-en="The Solution">La Solution</a></li>
+        <li><a href="#espaces" data-fr="3 Espaces" data-en="3 Spaces">3 Espaces</a></li>
+        <li><a href="#ussd-section">USSD *123#</a></li>
+        <li><a href="#impact">Impact & ODD</a></li>
+        <li><a href="#monde" data-fr="Potentiel Mondial" data-en="Global Potential">Potentiel Mondial</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title" data-fr="Contact" data-en="Contact">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@naatanguprix.sn">contact@naatanguprix.sn</a></li>
+        <li><a href="mailto:smsi2026@naatanguprix.sn">smsi2026@naatanguprix.sn</a></li>
+        <li><a href="#">www.naatanguprix.sn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <strong>Naatangu Prix (NTP)</strong> — République du Sénégal · Prix SMSI 2026 — UIT & 50 Organisations des Nations Unies</p>
+    <p data-fr="Fait avec ❤️ au Sénégal" data-en="Made with ❤️ in Senegal">Fait avec ❤️ au Sénégal</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════ -->
+</div><!-- end page-landing -->
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 2: LOGIN
+════════════════════════════════════════════════════════════ -->
+<div class="app-page" id="page-login">
+  <div class="login-page">
+    <div class="hero-circles"><div class="hc hc1"></div><div class="hc hc2"></div></div>
+    <div class="hero-grid-bg"></div>
+    <div class="login-container">
+      <div class="login-logo">
+        <div class="nav-logo" style="justify-content:center"><div class="logo-mark"><span></span><span></span><span></span><span></span></div><span class="logo-text">Naatangu Prix</span></div>
+        <h2>Connexion</h2>
+        <p>Accédez à votre espace dédié</p>
+      </div>
+      <div class="login-card">
+        <div class="login-tabs">
+          <button class="login-tab active" onclick="setLoginTab(this,'ministere')">🏛️ Ministère</button>
+          <button class="login-tab" onclick="setLoginTab(this,'commercant')">🏪 Commerçant</button>
+          <button class="login-tab" onclick="setLoginTab(this,'citoyen')">👥 Citoyen</button>
+        </div>
+        <div id="login-form-ministere" class="login-form-panel">
+          <div class="form-group"><label>Identifiant ministériel</label><input type="text" placeholder="MIN-XXXX-XXXX" id="min-id"></div>
+          <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••" id="min-pwd"></div>
+          <div class="form-group"><label>Région</label><select><option>Dakar</option><option>Thiès</option><option>Saint-Louis</option><option>Diourbel</option><option>Toutes les régions</option></select></div>
+          <button class="login-btn" onclick="loginAs('ministere')">Accéder au tableau de bord →</button>
+        </div>
+        <div id="login-form-commercant" class="login-form-panel" style="display:none">
+          <div class="form-group"><label>NINEA / N° commerçant</label><input type="text" placeholder="SN-XXXXXXXXX"></div>
+          <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••"></div>
+          <button class="login-btn" onclick="loginAs('commercant')">Accéder à mon espace →</button>
+        </div>
+        <div id="login-form-citoyen" class="login-form-panel" style="display:none">
+          <div class="form-group"><label>Numéro de téléphone</label><input type="tel" placeholder="+221 77 XXX XX XX"></div>
+          <div class="form-group"><label>Code PIN</label><input type="password" placeholder="••••" maxlength="4"></div>
+          <button class="login-btn" onclick="loginAs('citoyen')">Consulter les prix →</button>
+        </div>
+        <div class="login-footer"><a href="#">Première connexion ? Créer un compte</a></div>
+      </div>
+      <div class="login-back" onclick="document.getElementById('page-landing').style.display='block'; document.getElementById('page-login').style.display='none'; window.scrollTo(0,0);">← Retour au site</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 3: DASHBOARD MINISTÈRE
+════════════════════════════════════════════════════════════ -->
+<div class="app-page" id="page-dash-ministere">
+  <div class="dash">
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer"><div class="logo-mark"><span></span><span></span><span></span><span></span></div><span class="logo-text">Naatangu Prix</span></div>
+        <div class="dash-user-info"><div class="dash-user-name">Ministère du Commerce</div><div class="dash-user-role">🏛️ ADMINISTRATEUR</div></div>
+      </div>
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" onclick="showDashTab(this,'min-overview')"><span class="nav-icon">📊</span>Vue d'ensemble</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'min-prices')"><span class="nav-icon">💰</span>Prix officiels</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'min-signals')"><span class="nav-icon">🚨</span>Signalements<span class="nav-count">24</span></button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'min-ai')"><span class="nav-icon">🤖</span>Détection IA</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'min-map')"><span class="nav-icon">🗺️</span>Carte nationale</button>
+        <div class="dash-nav-divider"></div>
+        <button class="dash-nav-item" onclick="showDashTab(this,'min-notif')"><span class="nav-icon">🔔</span>Notifications<span class="nav-count">8</span></button>
+      </nav>
+      <div class="dash-sidebar-footer"><button class="dash-logout" onclick="showPage('login')">🚪 Déconnexion</button></div>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-topbar">
+        <h1>🏛️ Tableau de Bord National</h1>
+        <div class="dash-topbar-right">
+          <span class="dash-topbar-time" id="dashTime"></span>
+          <button class="dash-notif-btn">🔔<span class="notif-dot"></span></button>
+        </div>
+      </div>
+      <div class="dash-content">
+        <!-- Tab: Overview -->
+        <div class="dash-tab active" id="min-overview">
+          <div class="kpi-grid">
+            <div class="kpi-card green"><div class="kpi-label">Boutiques conformes</div><div class="kpi-value">4 382</div><div class="kpi-change up">↑ +12% ce mois</div></div>
+            <div class="kpi-card gold"><div class="kpi-label">Signalements actifs</div><div class="kpi-value">147</div><div class="kpi-change down">↑ +23 aujourd'hui</div></div>
+            <div class="kpi-card red"><div class="kpi-label">Taux non-conformité</div><div class="kpi-value">8,3%</div><div class="kpi-change up">↓ -2,1% ce mois</div></div>
+            <div class="kpi-card blue"><div class="kpi-label">Utilisateurs actifs</div><div class="kpi-value">48 291</div><div class="kpi-change up">↑ +8% cette semaine</div></div>
+          </div>
+          <div class="charts-row">
+            <div class="chart-box">
+              <h3>Conformité par région</h3>
+              <div class="bar-chart" id="barChart"></div>
+            </div>
+            <div class="chart-box">
+              <h3>Répartition des écarts</h3>
+              <div class="donut-chart" style="background:conic-gradient(var(--g2) 0% 62%,var(--gold) 62% 85%,var(--red2) 85% 100%)"><div class="donut-center"><span class="big">62%</span><span class="small">Conformes</span></div></div>
+              <div class="donut-legend">
+                <div class="donut-legend-item"><span class="dot" style="background:var(--g2)"></span>Conforme (0-5%) — 62%</div>
+                <div class="donut-legend-item"><span class="dot" style="background:var(--gold)"></span>Surveillance (5-20%) — 23%</div>
+                <div class="donut-legend-item"><span class="dot" style="background:var(--red2)"></span>Alerte (>20%) — 15%</div>
+              </div>
+            </div>
+          </div>
+          <div class="data-card">
+            <div class="data-card-header"><h3>Prix officiels en vigueur</h3><span class="data-card-badge live">● Temps réel</span></div>
+            <table class="data-table">
+              <tr><th>Produit</th><th>Prix officiel</th><th>Prix marché moy.</th><th>Écart</th><th>Statut</th></tr>
+              <tr><td>🌾 Riz brisé (kg)</td><td><strong>300 F</strong></td><td>425 F</td><td><span class="badge danger">+41,7%</span></td><td><span class="status-dot r">Alerte</span></td></tr>
+              <tr><td>🫙 Huile végétale (L)</td><td><strong>1 000 F</strong></td><td>1 150 F</td><td><span class="badge warn">+15,0%</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+              <tr><td>🍬 Sucre (kg)</td><td><strong>600 F</strong></td><td>620 F</td><td><span class="badge ok">+3,3%</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+              <tr><td>🧅 Oignon (kg)</td><td><strong>250 F</strong></td><td>290 F</td><td><span class="badge warn">+16,0%</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+              <tr><td>🍞 Farine (kg)</td><td><strong>310 F</strong></td><td>310 F</td><td><span class="badge ok">0%</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+              <tr><td>🥛 Lait en poudre (400g)</td><td><strong>1 800 F</strong></td><td>2 100 F</td><td><span class="badge warn">+16,7%</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <!-- Tab: Prices -->
+        <div class="dash-tab" id="min-prices" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Gestion des prix officiels</h2>
+          <div class="data-card" style="margin-bottom:1.5rem">
+            <div class="data-card-header"><h3>Modifier un prix officiel</h3><span class="data-card-badge live">Publication instantanée</span></div>
+            <div style="padding:1.25rem">
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:1rem;align-items:end">
+                <div class="form-group" style="margin:0"><label style="color:var(--muted);font-size:.7rem">Produit</label><select style="background:var(--off);border:1px solid var(--border);color:var(--text);width:100%;padding:.6rem;border-radius:8px;font-size:.82rem"><option>🌾 Riz brisé</option><option>🫙 Huile végétale</option><option>🍬 Sucre</option><option>🧅 Oignon</option><option>🍞 Farine</option><option>🥛 Lait en poudre</option></select></div>
+                <div class="form-group" style="margin:0"><label style="color:var(--muted);font-size:.7rem">Nouveau prix (FCFA/kg)</label><input type="number" placeholder="300" style="background:var(--off);border:1px solid var(--border);color:var(--text);width:100%;padding:.6rem;border-radius:8px;font-size:.82rem"></div>
+                <div class="form-group" style="margin:0"><label style="color:var(--muted);font-size:.7rem">Région</label><select style="background:var(--off);border:1px solid var(--border);color:var(--text);width:100%;padding:.6rem;border-radius:8px;font-size:.82rem"><option>Toutes les régions</option><option>Dakar</option><option>Thiès</option><option>Saint-Louis</option></select></div>
+                <button class="btn-primary" style="padding:.65rem 1.25rem;font-size:.82rem" onclick="alert('✅ Prix publié ! Notification envoyée à 4 382 commerçants et 48 291 citoyens.')">Publier →</button>
+              </div>
+            </div>
+          </div>
+          <div class="data-card">
+            <div class="data-card-header"><h3>Historique des modifications</h3></div>
+            <table class="data-table">
+              <tr><th>Date</th><th>Produit</th><th>Ancien prix</th><th>Nouveau prix</th><th>Variation</th><th>Auteur</th></tr>
+              <tr><td>14/03/2026</td><td>🌾 Riz brisé</td><td>350 F</td><td><strong>300 F</strong></td><td><span class="badge ok">-14,3%</span></td><td>Dir. Commerce</td></tr>
+              <tr><td>10/03/2026</td><td>🫙 Huile</td><td>1 100 F</td><td><strong>1 000 F</strong></td><td><span class="badge ok">-9,1%</span></td><td>Dir. Commerce</td></tr>
+              <tr><td>05/03/2026</td><td>🧅 Oignon</td><td>300 F</td><td><strong>250 F</strong></td><td><span class="badge ok">-16,7%</span></td><td>Sec. Général</td></tr>
+              <tr><td>01/03/2026</td><td>🥛 Lait</td><td>2 000 F</td><td><strong>1 800 F</strong></td><td><span class="badge ok">-10,0%</span></td><td>Dir. Commerce</td></tr>
+            </table>
+          </div>
+        </div>
+        <!-- Tab: Signals -->
+        <div class="dash-tab" id="min-signals" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Signalements citoyens <span class="badge danger" style="font-size:.7rem;vertical-align:middle">24 actifs</span></h2>
+          <div class="data-card">
+            <table class="data-table">
+              <tr><th>Réf.</th><th>Produit</th><th>Lieu</th><th>Prix constaté</th><th>Écart</th><th>Date</th><th>Statut</th></tr>
+              <tr><td style="font-family:var(--fm);font-size:.7rem">NTP-0847</td><td>🌾 Riz</td><td>Pikine, Dakar</td><td>425 F/kg</td><td><span class="badge danger">+41%</span></td><td>14/03 09:12</td><td><span class="status-dot r">Urgent</span></td></tr>
+              <tr><td style="font-family:var(--fm);font-size:.7rem">NTP-0843</td><td>🫙 Huile</td><td>Sandaga, Dakar</td><td>1 300 F/L</td><td><span class="badge danger">+30%</span></td><td>14/03 08:45</td><td><span class="status-dot r">Urgent</span></td></tr>
+              <tr><td style="font-family:var(--fm);font-size:.7rem">NTP-0839</td><td>🧅 Oignon</td><td>Thiès Centre</td><td>350 F/kg</td><td><span class="badge warn">+40%</span></td><td>13/03 17:30</td><td><span class="status-dot y">En cours</span></td></tr>
+              <tr><td style="font-family:var(--fm);font-size:.7rem">NTP-0835</td><td>🍬 Sucre</td><td>Kaolack</td><td>750 F/kg</td><td><span class="badge warn">+25%</span></td><td>13/03 15:22</td><td><span class="status-dot y">En cours</span></td></tr>
+              <tr><td style="font-family:var(--fm);font-size:.7rem">NTP-0831</td><td>🥛 Lait</td><td>Saint-Louis</td><td>2 500 F</td><td><span class="badge danger">+39%</span></td><td>13/03 14:05</td><td><span class="status-dot g">Résolu</span></td></tr>
+            </table>
+          </div>
+        </div>
+        <!-- Tab: AI -->
+        <div class="dash-tab" id="min-ai" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">🤖 Module IA — Détection d'anomalies</h2>
+          <div class="ai-grid">
+            <div class="ai-card">
+              <h4>Zones à risque identifiées <span class="ai-tag">IA</span></h4>
+              <div style="display:flex;flex-direction:column;gap:.6rem">
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;font-weight:600">Pikine</span><span class="badge danger">Risque élevé</span></div>
+                <div class="risk-bar"><div class="risk-segment" style="width:85%;background:var(--red2)"></div><div class="risk-segment" style="width:15%;background:rgba(0,0,0,.05)"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;font-weight:600">Sandaga</span><span class="badge warn">Risque moyen</span></div>
+                <div class="risk-bar"><div class="risk-segment" style="width:60%;background:var(--gold)"></div><div class="risk-segment" style="width:40%;background:rgba(0,0,0,.05)"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;font-weight:600">Médina</span><span class="badge warn">Risque moyen</span></div>
+                <div class="risk-bar"><div class="risk-segment" style="width:45%;background:var(--gold)"></div><div class="risk-segment" style="width:55%;background:rgba(0,0,0,.05)"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;font-weight:600">Plateau</span><span class="badge ok">Risque faible</span></div>
+                <div class="risk-bar"><div class="risk-segment" style="width:15%;background:var(--g2)"></div><div class="risk-segment" style="width:85%;background:rgba(0,0,0,.05)"></div></div>
+              </div>
+            </div>
+            <div class="ai-card">
+              <h4>Carte thermique — 7 derniers jours <span class="ai-tag">IA</span></h4>
+              <div style="font-size:.62rem;color:var(--muted);margin-bottom:.5rem;display:flex;justify-content:space-between"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
+              <div class="heat-grid" id="heatGrid"></div>
+              <div style="display:flex;justify-content:space-between;margin-top:.6rem;font-size:.55rem;color:var(--muted)"><span>Faible</span><div style="display:flex;gap:3px"><span style="width:12px;height:8px;background:#c6f6d5;border-radius:2px"></span><span style="width:12px;height:8px;background:#fefcbf;border-radius:2px"></span><span style="width:12px;height:8px;background:#fed7aa;border-radius:2px"></span><span style="width:12px;height:8px;background:#feb2b2;border-radius:2px"></span></div><span>Élevé</span></div>
+            </div>
+          </div>
+          <div class="data-card">
+            <div class="data-card-header"><h3>Prédictions IA — Prochaines 48h</h3><span class="data-card-badge info" style="background:rgba(59,130,246,.08);color:var(--blue);border:1px solid rgba(59,130,246,.15)">🤖 Machine Learning</span></div>
+            <table class="data-table">
+              <tr><th>Zone</th><th>Produit</th><th>Probabilité de spéculation</th><th>Action recommandée</th></tr>
+              <tr><td>Pikine</td><td>🌾 Riz</td><td><span class="badge danger">92%</span></td><td>Contrôle terrain immédiat</td></tr>
+              <tr><td>Guédiawaye</td><td>🫙 Huile</td><td><span class="badge warn">67%</span></td><td>Surveillance renforcée</td></tr>
+              <tr><td>Rufisque</td><td>🧅 Oignon</td><td><span class="badge warn">54%</span></td><td>Alerte préventive</td></tr>
+              <tr><td>Thiès</td><td>🍬 Sucre</td><td><span class="badge ok">12%</span></td><td>Aucune action requise</td></tr>
+            </table>
+          </div>
+        </div>
+        <!-- Tab: Map -->
+        <div class="dash-tab" id="min-map" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Carte nationale de conformité</h2>
+          <div class="map-container">
+            <div class="map-header"><h3>🗺️ 14 régions du Sénégal</h3><span class="data-card-badge live">● Temps réel</span></div>
+            <div class="map-body">
+              <div class="map-pin" style="top:25%;left:72%"><div class="pin-dot" style="background:var(--red2)"></div><div class="pin-label">Saint-Louis · 71%</div></div>
+              <div class="map-pin" style="top:40%;left:82%"><div class="pin-dot" style="background:var(--gold)"></div><div class="pin-label">Matam · 78%</div></div>
+              <div class="map-pin" style="top:55%;left:45%"><div class="pin-dot" style="background:var(--g2)"></div><div class="pin-label">Thiès · 89%</div></div>
+              <div class="map-pin" style="top:50%;left:32%"><div class="pin-dot" style="background:var(--g2)"></div><div class="pin-label">Dakar · 91%</div></div>
+              <div class="map-pin" style="top:60%;left:55%"><div class="pin-dot" style="background:var(--gold)"></div><div class="pin-label">Diourbel · 82%</div></div>
+              <div class="map-pin" style="top:65%;left:42%"><div class="pin-dot" style="background:var(--gold)"></div><div class="pin-label">Fatick · 76%</div></div>
+              <div class="map-pin" style="top:72%;left:52%"><div class="pin-dot" style="background:var(--red2)"></div><div class="pin-label">Kaolack · 68%</div></div>
+              <div class="map-pin" style="top:75%;left:35%"><div class="pin-dot" style="background:var(--g2)"></div><div class="pin-label">Ziguinchor · 85%</div></div>
+              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.15" viewBox="0 0 400 300"><path d="M60 120 Q80 80,150 70 Q200 60,250 80 Q300 95,340 110 Q350 130,340 160 Q320 200,280 230 Q240 260,200 270 Q160 275,120 260 Q80 240,60 200 Q50 160,60 120Z" fill="var(--g2)" stroke="var(--g1)" stroke-width="1"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Tab: Notifications -->
+        <div class="dash-tab" id="min-notif" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Centre de notifications</h2>
+          <div class="notif-panel">
+            <div class="notif-panel-header"><h3>Aujourd'hui</h3><button style="font-size:.72rem;color:var(--g2);background:none;border:none;cursor:pointer;font-weight:600">Tout marquer comme lu</button></div>
+            <div class="notif-list-dash">
+              <div class="notif-item-dash"><div class="notif-icon nr">🚨</div><div class="notif-content"><div class="notif-title">Alerte spéculation — Pikine</div><div class="notif-desc">IA détecte risque de spéculation élevé (92%) sur le riz dans la zone de Pikine. Contrôle terrain recommandé.</div></div><div class="notif-time-dash">il y a 12 min</div></div>
+              <div class="notif-item-dash"><div class="notif-icon ny">📢</div><div class="notif-content"><div class="notif-title">Signalement citoyen — NTP-0847</div><div class="notif-desc">Nouveau signalement : Riz vendu à 425 F/kg au marché de Pikine (officiel : 300 F).</div></div><div class="notif-time-dash">il y a 38 min</div></div>
+              <div class="notif-item-dash"><div class="notif-icon ng">✅</div><div class="notif-content"><div class="notif-title">Conformité améliorée — Plateau</div><div class="notif-desc">Taux de conformité passé de 88% à 94% dans le secteur du Plateau.</div></div><div class="notif-time-dash">il y a 2h</div></div>
+              <div class="notif-item-dash"><div class="notif-icon nb">📊</div><div class="notif-content"><div class="notif-title">Rapport hebdomadaire généré</div><div class="notif-desc">Le rapport de conformité de la semaine 11 est disponible. 4 382 boutiques analysées.</div></div><div class="notif-time-dash">il y a 4h</div></div>
+              <div class="notif-item-dash"><div class="notif-icon ng">🏅</div><div class="notif-content"><div class="notif-title">12 nouveaux badges « Boutique Conforme »</div><div class="notif-desc">12 commerçants dans la région de Thiès ont atteint 90% de conformité.</div></div><div class="notif-time-dash">Hier 18:30</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 4: DASHBOARD COMMERÇANT
+════════════════════════════════════════════════════════════ -->
+<div class="app-page" id="page-dash-commercant">
+  <div class="dash">
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <div class="nav-logo" onclick="showPage('landing')"><div class="logo-mark"><span></span><span></span><span></span><span></span></div><span class="logo-text">Naatangu Prix</span></div>
+        <div class="dash-user-info"><div class="dash-user-name">Moussa Ba</div><div class="dash-user-role">🏪 BOUTIQUE SANDAGA — NINEA: SN-28374610</div></div>
+      </div>
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" onclick="showDashTab(this,'com-overview')"><span class="nav-icon">📊</span>Mon espace</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'com-prices')"><span class="nav-icon">💰</span>Mes prix</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'com-alerts')"><span class="nav-icon">🔔</span>Alertes<span class="nav-count">3</span></button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'com-badge')"><span class="nav-icon">🏅</span>Mon badge</button>
+        <div class="dash-nav-divider"></div>
+        <button class="dash-nav-item" onclick="showDashTab(this,'com-ussd')"><span class="nav-icon">📱</span>Simulateur USSD</button>
+      </nav>
+      <div class="dash-sidebar-footer"><button class="dash-logout" onclick="showPage('login')">🚪 Déconnexion</button></div>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-topbar"><h1>🏪 Espace Commerçant</h1><div class="dash-topbar-right"><span class="dash-topbar-time" id="dashTime2"></span><button class="dash-notif-btn">🔔<span class="notif-dot"></span></button></div></div>
+      <div class="dash-content">
+        <div class="dash-tab active" id="com-overview">
+          <div class="kpi-grid">
+            <div class="kpi-card green"><div class="kpi-label">Taux de conformité</div><div class="kpi-value">87%</div><div class="kpi-change up">↑ +5% ce mois</div></div>
+            <div class="kpi-card gold"><div class="kpi-label">Badge actif</div><div class="kpi-value" style="font-size:1.4rem">✓ Conforme</div><div class="kpi-change up">Renouvelé le 10/03</div></div>
+            <div class="kpi-card blue"><div class="kpi-label">Vérifications clients</div><div class="kpi-value">28</div><div class="kpi-change up">↑ cette semaine</div></div>
+            <div class="kpi-card green"><div class="kpi-label">Position classement</div><div class="kpi-value">#12</div><div class="kpi-change up">sur 180 boutiques Sandaga</div></div>
+          </div>
+          <div class="notif-panel">
+            <div class="notif-panel-header"><h3>🔔 Dernières alertes prix</h3></div>
+            <div class="notif-list-dash">
+              <div class="notif-item-dash"><div class="notif-icon ny">⚡</div><div class="notif-content"><div class="notif-title" style="color:var(--gold)">URGENT : Nouveau prix officiel — Riz brisé</div><div class="notif-desc">Le prix officiel du riz brisé est passé de 350 F à 300 F/kg. Mise à jour requise immédiatement.</div></div><div class="notif-time-dash">il y a 5 min</div></div>
+              <div class="notif-item-dash"><div class="notif-icon ng">✅</div><div class="notif-content"><div class="notif-title">Sucre — Prix conforme validé</div><div class="notif-desc">Votre prix de 600 F/kg pour le sucre est conforme au prix officiel.</div></div><div class="notif-time-dash">il y a 2h</div></div>
+              <div class="notif-item-dash"><div class="notif-icon ng">🏅</div><div class="notif-content"><div class="notif-title">Badge Boutique Conforme renouvelé</div><div class="notif-desc">Félicitations ! Votre taux de conformité de 87% vous qualifie pour le badge ce mois.</div></div><div class="notif-time-dash">Hier</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-tab" id="com-prices" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Mes prix pratiqués</h2>
+          <div class="data-card">
+            <div class="data-card-header"><h3>Affichage obligatoire des prix</h3><span class="data-card-badge" style="background:rgba(245,166,35,.08);color:var(--gold);border:1px solid rgba(245,166,35,.15)">✏️ Modifiable</span></div>
+            <table class="data-table">
+              <tr><th>Produit</th><th>Prix officiel</th><th>Mon prix</th><th>Écart</th><th>Statut</th><th>Action</th></tr>
+              <tr><td>🌾 Riz brisé</td><td>300 F/kg</td><td><strong>300 F</strong></td><td><span class="badge ok">0%</span></td><td><span class="status-dot g">Conforme</span></td><td><button style="font-size:.68rem;color:var(--g2);background:none;border:1px solid var(--g2);border-radius:6px;padding:.25rem .5rem;cursor:pointer">Modifier</button></td></tr>
+              <tr><td>🫙 Huile</td><td>1 000 F/L</td><td><strong>1 050 F</strong></td><td><span class="badge warn">+5%</span></td><td><span class="status-dot y">Limite</span></td><td><button style="font-size:.68rem;color:var(--gold);background:none;border:1px solid var(--gold);border-radius:6px;padding:.25rem .5rem;cursor:pointer">Ajuster</button></td></tr>
+              <tr><td>🍬 Sucre</td><td>600 F/kg</td><td><strong>600 F</strong></td><td><span class="badge ok">0%</span></td><td><span class="status-dot g">Conforme</span></td><td><button style="font-size:.68rem;color:var(--g2);background:none;border:1px solid var(--g2);border-radius:6px;padding:.25rem .5rem;cursor:pointer">Modifier</button></td></tr>
+              <tr><td>🧅 Oignon</td><td>250 F/kg</td><td><strong>260 F</strong></td><td><span class="badge ok">+4%</span></td><td><span class="status-dot g">Conforme</span></td><td><button style="font-size:.68rem;color:var(--g2);background:none;border:1px solid var(--g2);border-radius:6px;padding:.25rem .5rem;cursor:pointer">Modifier</button></td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="dash-tab" id="com-alerts" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Historique des alertes</h2>
+          <div class="notif-panel"><div class="notif-panel-header"><h3>Toutes les alertes</h3></div><div class="notif-list-dash">
+            <div class="notif-item-dash"><div class="notif-icon ny">⚡</div><div class="notif-content"><div class="notif-title">Riz brisé — Nouveau prix : 300 F/kg</div><div class="notif-desc">Baisse de 14,3%. Mise à jour de votre affichage requise.</div></div><div class="notif-time-dash">14/03 09:00</div></div>
+            <div class="notif-item-dash"><div class="notif-icon ny">⚡</div><div class="notif-content"><div class="notif-title">Huile végétale — Nouveau prix : 1 000 F/L</div><div class="notif-desc">Baisse de 9,1%. Ajustez votre prix.</div></div><div class="notif-time-dash">10/03 08:30</div></div>
+            <div class="notif-item-dash"><div class="notif-icon ny">⚡</div><div class="notif-content"><div class="notif-title">Oignon — Nouveau prix : 250 F/kg</div><div class="notif-desc">Baisse de 16,7%. Mise à jour obligatoire.</div></div><div class="notif-time-dash">05/03 10:15</div></div>
+          </div></div>
+        </div>
+        <div class="dash-tab" id="com-badge" style="display:none">
+          <div style="text-align:center;padding:3rem 0">
+            <div style="width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--g2),var(--g3));margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:3.5rem;box-shadow:0 12px 40px rgba(0,154,68,.3)">🏅</div>
+            <h2 style="font-family:var(--fd);font-size:1.8rem;font-weight:900;color:var(--navy);margin-bottom:.5rem">Boutique Conforme</h2>
+            <p style="color:var(--g1);font-weight:600;margin-bottom:1.5rem">Taux de conformité : 87% — Actif depuis le 10/03/2026</p>
+            <p style="color:var(--muted);font-size:.88rem;max-width:480px;margin:0 auto;line-height:1.65">Ce badge certifie que votre boutique respecte les prix officiels fixés par le Ministère du Commerce. Il est visible par tous les citoyens utilisant Naatangu Prix et renforce la confiance de vos clients.</p>
+            <div style="margin-top:2rem;display:flex;justify-content:center;gap:1rem">
+              <div style="background:var(--off);border-radius:12px;padding:1rem 1.5rem;text-align:center"><div style="font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--navy)">28</div><div style="font-size:.68rem;color:var(--muted)">Vérifications clients</div></div>
+              <div style="background:var(--off);border-radius:12px;padding:1rem 1.5rem;text-align:center"><div style="font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--navy)">#12</div><div style="font-size:.68rem;color:var(--muted)">Classement zone</div></div>
+              <div style="background:var(--off);border-radius:12px;padding:1rem 1.5rem;text-align:center"><div style="font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--g1)">4/4</div><div style="font-size:.68rem;color:var(--muted)">Produits conformes</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-tab" id="com-ussd" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Simulateur USSD *123#</h2>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start">
+            <div class="ussd-phone">
+              <div class="ussd-topbar"><span>Naatangu Prix</span><span id="utime">09:41</span></div>
+              <div class="ussd-screen" id="uscreen"></div>
+              <div class="ussd-keypad">
+                <button class="ukey" onclick="uk('1')">1</button><button class="ukey" onclick="uk('2')">2</button><button class="ukey" onclick="uk('3')">3</button>
+                <button class="ukey" onclick="uk('4')">4</button><button class="ukey" onclick="uk('5')">5</button><button class="ukey" onclick="uk('6')">6</button>
+                <button class="ukey" onclick="uk('7')">7</button><button class="ukey" onclick="uk('8')">8</button><button class="ukey" onclick="uk('9')">9</button>
+                <button class="ukey del" onclick="udel()">⌫</button><button class="ukey" onclick="uk('0')">0</button><button class="ukey ok" onclick="usend()">OK ↵</button>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.75rem">Comment ça marche</h3>
+              <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem">Composez <strong style="color:var(--navy)">*123#</strong> sur n'importe quel téléphone — même sans internet, même sans smartphone. Le menu interactif vous permet de consulter les prix officiels, trouver les boutiques proches et signaler les abus.</p>
+              <div style="display:flex;flex-direction:column;gap:.5rem">
+                <div style="display:flex;gap:.5rem;align-items:center;font-size:.78rem;color:var(--muted)"><span style="background:rgba(0,154,68,.1);width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0">1️⃣</span> Tapez <strong style="color:var(--navy)">1</strong> puis <strong style="color:var(--navy)">OK</strong> pour voir les prix</div>
+                <div style="display:flex;gap:.5rem;align-items:center;font-size:.78rem;color:var(--muted)"><span style="background:rgba(245,166,35,.1);width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0">2️⃣</span> Tapez <strong style="color:var(--navy)">2</strong> pour trouver les boutiques proches</div>
+                <div style="display:flex;gap:.5rem;align-items:center;font-size:.78rem;color:var(--muted)"><span style="background:rgba(192,57,43,.08);width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0">3️⃣</span> Tapez <strong style="color:var(--navy)">3</strong> pour signaler un abus</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 5: DASHBOARD CITOYEN
+════════════════════════════════════════════════════════════ -->
+<div class="app-page" id="page-dash-citoyen">
+  <div class="dash">
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <div class="nav-logo" onclick="showPage('landing')"><div class="logo-mark"><span></span><span></span><span></span><span></span></div><span class="logo-text">Naatangu Prix</span></div>
+        <div class="dash-user-info"><div class="dash-user-name">Aminata Diallo</div><div class="dash-user-role">👥 CITOYEN — Pikine, Dakar</div></div>
+      </div>
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" onclick="showDashTab(this,'cit-prices')"><span class="nav-icon">💰</span>Prix du jour</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'cit-compare')"><span class="nav-icon">📍</span>Comparer boutiques</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'cit-signal')"><span class="nav-icon">🚨</span>Signaler un abus</button>
+        <button class="dash-nav-item" onclick="showDashTab(this,'cit-alerts')"><span class="nav-icon">🔔</span>Mes alertes<span class="nav-count">2</span></button>
+        <div class="dash-nav-divider"></div>
+        <button class="dash-nav-item" onclick="showDashTab(this,'cit-ussd')"><span class="nav-icon">📱</span>USSD *123#</button>
+      </nav>
+      <div class="dash-sidebar-footer"><button class="dash-logout" onclick="showPage('login')">🚪 Déconnexion</button></div>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-topbar"><h1>👥 Espace Citoyen</h1><div class="dash-topbar-right"><span class="dash-topbar-time" id="dashTime3"></span><button class="dash-notif-btn">🔔<span class="notif-dot"></span></button></div></div>
+      <div class="dash-content">
+        <div class="dash-tab active" id="cit-prices">
+          <div style="background:rgba(0,154,68,.06);border:1px solid rgba(0,154,68,.15);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem">
+            <span style="font-size:1.3rem">⚡</span>
+            <div><strong style="color:var(--g1);font-size:.85rem">Alerte : le prix du riz a baissé !</strong><p style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Nouveau prix officiel : 300 F/kg (ancien : 350 F) — Économie : 50 F/kg</p></div>
+          </div>
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Prix officiels du jour — Dakar</h2>
+          <div class="data-card">
+            <div class="data-card-header"><h3>Denrées de première nécessité</h3><span class="data-card-badge live">● Mis à jour aujourd'hui</span></div>
+            <table class="data-table">
+              <tr><th>Produit</th><th>Prix officiel</th><th>Prix moyen marché</th><th>Économie possible</th><th>Statut zone</th></tr>
+              <tr><td>🌾 Riz brisé (kg)</td><td><strong style="color:var(--g1);font-size:1rem">300 F</strong></td><td>425 F</td><td><span class="badge ok" style="font-size:.72rem">125 F économisés</span></td><td><span class="status-dot r">Spéculation</span></td></tr>
+              <tr><td>🫙 Huile végétale (L)</td><td><strong style="color:var(--g1);font-size:1rem">1 000 F</strong></td><td>1 150 F</td><td><span class="badge ok" style="font-size:.72rem">150 F économisés</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+              <tr><td>🍬 Sucre (kg)</td><td><strong style="color:var(--g1);font-size:1rem">600 F</strong></td><td>620 F</td><td><span class="badge info" style="font-size:.72rem">20 F</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+              <tr><td>🧅 Oignon (kg)</td><td><strong style="color:var(--g1);font-size:1rem">250 F</strong></td><td>290 F</td><td><span class="badge ok" style="font-size:.72rem">40 F économisés</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+              <tr><td>🍞 Farine (kg)</td><td><strong style="color:var(--g1);font-size:1rem">310 F</strong></td><td>310 F</td><td><span class="badge info" style="font-size:.72rem">0 F</span></td><td><span class="status-dot g">Conforme</span></td></tr>
+              <tr><td>🥛 Lait en poudre (400g)</td><td><strong style="color:var(--g1);font-size:1rem">1 800 F</strong></td><td>2 100 F</td><td><span class="badge ok" style="font-size:.72rem">300 F économisés</span></td><td><span class="status-dot y">Surveillance</span></td></tr>
+            </table>
+          </div>
+          <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.25rem;text-align:center">
+            <p style="font-family:var(--fd);font-size:1.1rem;font-weight:900;color:var(--navy);margin-bottom:.3rem">💰 Économie potentielle ce mois</p>
+            <p style="font-family:var(--fd);font-size:2.5rem;font-weight:900;color:var(--g1)">15 350 FCFA</p>
+            <p style="font-size:.78rem;color:var(--muted)">En achetant tous vos produits au prix officiel</p>
+          </div>
+        </div>
+        <div class="dash-tab" id="cit-compare" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:.5rem">📍 Comparer les boutiques proches</h2>
+          <p style="color:var(--muted);font-size:.85rem;margin-bottom:1.5rem">Pikine — Riz brisé (prix officiel : 300 F/kg)</p>
+          <div class="compare-grid">
+            <div class="compare-card best"><div class="compare-shop">Épicerie Touba</div><div class="compare-dist">📍 180m · NINEA vérifié</div><div class="compare-price ok">300 F</div><div class="compare-official">Prix officiel : 300 F</div><div class="compare-diff ok">✓ Conforme</div></div>
+            <div class="compare-card"><div class="compare-shop">Chez Mamadou</div><div class="compare-dist">📍 340m</div><div class="compare-price high">370 F</div><div class="compare-official">Prix officiel : 300 F</div><div class="compare-diff bad">+23% au-dessus</div></div>
+            <div class="compare-card"><div class="compare-shop">Mini-marché Liberté</div><div class="compare-dist">📍 520m · ⚠️ Signalé</div><div class="compare-price high">425 F</div><div class="compare-official">Prix officiel : 300 F</div><div class="compare-diff bad">+42% au-dessus</div></div>
+          </div>
+          <div class="map-container">
+            <div class="map-header"><h3>Carte des boutiques</h3></div>
+            <div class="map-body" style="height:240px">
+              <div class="map-pin" style="top:40%;left:35%"><div class="pin-dot" style="background:var(--g2)"></div><div class="pin-label">Épicerie Touba · 300 F ✓</div></div>
+              <div class="map-pin" style="top:30%;left:55%"><div class="pin-dot" style="background:var(--gold)"></div><div class="pin-label">Chez Mamadou · 370 F</div></div>
+              <div class="map-pin" style="top:60%;left:65%"><div class="pin-dot" style="background:var(--red2)"></div><div class="pin-label">Mini-marché · 425 F ⚠️</div></div>
+              <div class="map-pin" style="top:50%;left:45%"><div class="pin-dot" style="background:var(--blue);width:10px;height:10px"></div><div class="pin-label" style="color:var(--blue)">📍 Vous êtes ici</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-tab" id="cit-signal" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">🚨 Signaler un abus de prix</h2>
+          <div class="signal-card">
+            <h3>Nouveau signalement anonyme</h3>
+            <div class="signal-form">
+              <div class="form-group"><label>Produit concerné</label><select><option>🌾 Riz brisé</option><option>🫙 Huile végétale</option><option>🍬 Sucre</option><option>🧅 Oignon</option><option>🍞 Farine</option><option>🥛 Lait en poudre</option></select></div>
+              <div class="form-group"><label>Prix constaté (FCFA)</label><input type="number" placeholder="Ex: 425"></div>
+              <div class="form-group"><label>Nom de la boutique (optionnel)</label><input type="text" placeholder="Ex: Mini-marché Liberté"></div>
+              <div class="form-group"><label>Localisation</label><input type="text" placeholder="📍 Pikine, Dakar" value="📍 Pikine, Dakar (détecté automatiquement)"></div>
+              <div class="form-group"><label>Description (optionnel)</label><textarea placeholder="Décrivez la situation..."></textarea></div>
+              <div class="upload-zone">📸 Cliquez pour ajouter une photo comme preuve</div>
+              <div style="display:flex;gap:1rem;align-items:center;justify-content:space-between;margin-top:.5rem">
+                <span style="font-size:.72rem;color:var(--muted)">🔒 Votre identité restera totalement anonyme</span>
+                <button class="btn-submit" onclick="alert('✅ Signalement NTP-0848 envoyé anonymement !\n\nVotre signalement sera traité dans les 48 heures.\nMerci citoyen(ne) !')">🚨 Signaler anonymement</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-tab" id="cit-alerts" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">Mes alertes prix</h2>
+          <div class="notif-panel"><div class="notif-panel-header"><h3>Alertes récentes</h3></div><div class="notif-list-dash">
+            <div class="notif-item-dash"><div class="notif-icon ng">📉</div><div class="notif-content"><div class="notif-title" style="color:var(--g1)">🎉 Bonne nouvelle ! Le riz a baissé</div><div class="notif-desc">Nouveau prix : 300 F/kg (ancien : 350 F). Économisez 50 F/kg. Les boutiques conformes proches de vous : Épicerie Touba (180m).</div></div><div class="notif-time-dash">Aujourd'hui</div></div>
+            <div class="notif-item-dash"><div class="notif-icon ny">⚠️</div><div class="notif-content"><div class="notif-title">Signalement traité — NTP-0831</div><div class="notif-desc">Votre signalement du 13/03 concernant le lait en poudre à Saint-Louis a été traité. Le commerçant a ajusté son prix.</div></div><div class="notif-time-dash">Hier</div></div>
+          </div></div>
+        </div>
+        <div class="dash-tab" id="cit-ussd" style="display:none">
+          <h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:1.5rem">📱 Accès USSD — Sans internet</h2>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start">
+            <div class="ussd-phone">
+              <div class="ussd-topbar"><span>Naatangu Prix</span><span>09:41</span></div>
+              <div class="ussd-screen" id="uscreen2"></div>
+              <div class="ussd-keypad">
+                <button class="ukey" onclick="uk2('1')">1</button><button class="ukey" onclick="uk2('2')">2</button><button class="ukey" onclick="uk2('3')">3</button>
+                <button class="ukey" onclick="uk2('4')">4</button><button class="ukey" onclick="uk2('5')">5</button><button class="ukey" onclick="uk2('6')">6</button>
+                <button class="ukey" onclick="uk2('7')">7</button><button class="ukey" onclick="uk2('8')">8</button><button class="ukey" onclick="uk2('9')">9</button>
+                <button class="ukey del" onclick="udel2()">⌫</button><button class="ukey" onclick="uk2('0')">0</button><button class="ukey ok" onclick="usend2()">OK ↵</button>
+              </div>
+            </div>
+            <div>
+              <div style="background:rgba(0,154,68,.06);border:1px solid rgba(0,154,68,.15);border-radius:12px;padding:1.25rem;margin-bottom:1.5rem">
+                <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem">Composez <span style="font-family:var(--fm);color:var(--g1)">*123#</span></h3>
+                <p style="font-size:.85rem;color:var(--muted);line-height:1.65">Fonctionne sur tout téléphone. Sans internet. Sans application. Accessible aux 90% de la population qui n'a pas de smartphone.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem"><strong style="color:var(--navy)">Essayez maintenant :</strong></p>
+              <p style="font-size:.82rem;color:var(--muted);line-height:1.7">Tapez <strong>1</strong> puis <strong>OK</strong> pour voir les prix officiels du jour.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT (FUSION)
+═══════════════════════════════════════════════════════ -->
+<script>
+
+// ══════════════════════════════════════════════════════
+// SPA PAGE ROUTING
+// ══════════════════════════════════════════════════════
+function showPage(page) {
+  console.log('Changement de page vers:', page);
+  document.querySelectorAll('.app-page').forEach(p => p.classList.remove('active'));
+  const mapping = {
+    'landing': 'page-landing',
+    'login': 'page-login',
+    'ministere': 'page-dash-ministere',
+    'commercant': 'page-dash-commercant',
+    'citoyen': 'page-dash-citoyen'
+  };
+  const targetId = mapping[page];
+  if (targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.classList.add('active');
+      // Scroll vers le haut lors du changement de page
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      console.log('Page affichée:', targetId);
+    } else {
+      console.error(`Page ${targetId} non trouvée !`);
+    }
+  } else {
+    console.error(`Mapping non trouvé pour: ${page}`);
+  }
+  // Show/hide landing nav + ticker
+  const nav = document.getElementById('nav');
+  const ticker = document.getElementById('priceTicker');
+  const isLanding = (page === 'landing');
+  if (nav) nav.style.display = isLanding ? '' : 'none';
+  if (ticker) ticker.style.display = isLanding ? '' : 'none';
+  // Close mobile menu if open
+  const mm = document.getElementById('mobileMenu');
+  if (mm) mm.classList.remove('open');
+  // Init USSD when entering dashboards
+  if (page === 'commercant' || page === 'citoyen') { initUSSD(); initUSSD2(); }
+}
+function loginAs(type) { showPage(type); }
+function setLoginTab(btn, type) {
+  document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.login-form-panel').forEach(p => p.style.display = 'none');
+  const panel = document.getElementById('login-form-' + type);
+  if (panel) panel.style.display = 'block';
+}
+
+// ══════════════════════════════════════════════════════
+// DASHBOARD TABS
+// ══════════════════════════════════════════════════════
+function showDashTab(btn, tabId) {
+  const dash = btn.closest('.dash');
+  dash.querySelectorAll('.dash-nav-item').forEach(n => n.classList.remove('active'));
+  btn.classList.add('active');
+  dash.querySelectorAll('.dash-tab').forEach(t => t.style.display = 'none');
+  const tab = document.getElementById(tabId);
+  if (tab) tab.style.display = 'block';
+}
+
+// ══════════════════════════════════════════════════════
+// LANGUAGE SWITCHER (FR/EN)
+// ══════════════════════════════════════════════════════
+let currentLang = 'fr';
+function setLang(l) {
+  currentLang = l;
+  document.getElementById('btn-fr').classList.toggle('on', l==='fr');
+  document.getElementById('btn-en').classList.toggle('on', l==='en');
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    const val = el.getAttribute('data-' + l);
+    if (val) el.innerHTML = val;
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// SCROLL & NAV
+// ══════════════════════════════════════════════════════
+function scrollTo(id) {
+  console.log('Navigation vers:', id);
+  const el = document.getElementById(id);
+  if (el) {
+    console.log('Élément trouvé:', el);
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    console.error('Élément non trouvé:', id);
+  }
+}
+window.addEventListener('scroll', () => {
+  const btt = document.getElementById('btt');
+  if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ══════════════════════════════════════════════════════
+// MOBILE MENU
+// ══════════════════════════════════════════════════════
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('open');
+}
+
+// ══════════════════════════════════════════════════════
+// ESPACES TABS (landing page)
+// ══════════════════════════════════════════════════════
+function showEspace(id, btn) {
+  document.querySelectorAll('.espaces-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.espace-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════════════════════
+// SCROLL REVEAL + IMPACT BARS
+// ══════════════════════════════════════════════════════
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.imp-fill').forEach(bar => {
+        const w = bar.getAttribute('data-w');
+        if (w) setTimeout(() => { bar.style.width = w + '%' }, 300);
+      });
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.imp-fill').forEach(bar => {
+        const w = bar.getAttribute('data-w');
+        if (w) setTimeout(() => { bar.style.width = w + '%' }, 400);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+const ig = document.getElementById('impact-grid');
+if (ig) barObs.observe(ig);
+
+// ══════════════════════════════════════════════════════
+// USSD SIMULATOR (instance 1 — landing + commerçant)
+// ══════════════════════════════════════════════════════
+let uState = 'main', uInput = '';
+const uMenus = {
+  main: '<div class="ussd-dim">NAATANGU PRIX</div><div class="ussd-dim">*123# — Menu principal</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>1. Prix officiels du jour</div><div>2. Boutiques proches</div><div>3. Signaler un abus</div><div>4. Mes alertes prix</div><div>0. Quitter</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div>',
+  prix: '<div class="ussd-dim">PRIX OFFICIELS — Dakar</div><div class="ussd-dim">Mis a jour: aujourd\'hui</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>Riz brise : 300 F/kg</div><div>Huile     : 1000 F/L</div><div>Sucre     : 600 F/kg</div><div>Oignon    : 250 F/kg</div><div>Farine    : 310 F/kg</div><div>Lait      : 1800 F</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>0. Retour menu</div>',
+  boutiques: '<div class="ussd-dim">BOUTIQUES PROCHES</div><div class="ussd-dim">📍 Pikine — 3 resultats</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>1. Epicerie Touba (180m)</div><div>   Riz: 300 F ✓ Conforme</div><div>2. Chez Mamadou (340m)</div><div>   Riz: 310 F</div><div>3. Mini-marche (520m)</div><div>   Riz: 425 F ⚠ Alerte</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>0. Retour menu</div>',
+  signal: '<div class="ussd-dim">SIGNALEMENT ANONYME</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>Quel produit ?</div><div>1. Riz brise</div><div>2. Huile vegetale</div><div>3. Sucre</div><div>4. Autre produit</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>0. Retour menu</div>',
+  alertes: '<div class="ussd-dim">MES ALERTES PRIX</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>✓ Alerte: Riz baisse!</div><div>  300F (etait 425F)</div><div>  Economie: 125F/kg</div><div class="ussd-sep">───────────────</div><div>1. Alertes riz actives</div><div>2. Alertes huile</div><div>3. Activer tout</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>0. Retour menu</div>',
+  confirme: '<div class="ussd-dim">SIGNALEMENT ENVOYE</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>✓ Recu anonymement</div><div>  Ref: NTP-2026-0848</div><div class="ussd-sep">───────────────</div><div>Votre signalement sera</div><div>traite dans 48 heures.</div><div>Merci citoyen!</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>0. Menu principal</div>',
+  quitter: '<div class="ussd-dim">AU REVOIR</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div><div>Merci d\'utiliser</div><div>Naatangu Prix!</div><div>Prix juste pour tous.</div><div>Composez *123#</div><div class="ussd-sep">━━━━━━━━━━━━━━━━</div>'
+};
+function renderUssd(screenId) {
+  const s = document.getElementById(screenId || 'uscreen');
+  if (s) s.innerHTML = (uMenus[uState] || uMenus.main) + '<div>> <span style="color:rgba(0,255,65,.8)">' + uInput + '</span><span class="ussd-cursor">_</span></div>';
+}
+function uk(k) { uInput += k; renderUssd('uscreen'); }
+function udel() { uInput = uInput.slice(0,-1); renderUssd('uscreen'); }
+function usend() {
+  const k = uInput; uInput = '';
+  if (uState === 'main') { if(k==='1')uState='prix';else if(k==='2')uState='boutiques';else if(k==='3')uState='signal';else if(k==='4')uState='alertes';else if(k==='0')uState='quitter'; }
+  else if (uState === 'signal') { uState = k === '0' ? 'main' : 'confirme'; }
+  else { uState = k === '0' ? 'main' : uState; }
+  renderUssd('uscreen');
+}
+function initUSSD() { uState = 'main'; uInput = ''; renderUssd('uscreen'); }
+
+// USSD instance 2 (citoyen dashboard)
+let uState2 = 'main', uInput2 = '';
+function renderUssd2() {
+  const s = document.getElementById('uscreen2');
+  if (s) s.innerHTML = (uMenus[uState2] || uMenus.main) + '<div>> <span style="color:rgba(0,255,65,.8)">' + uInput2 + '</span><span class="ussd-cursor">_</span></div>';
+}
+function uk2(k) { uInput2 += k; renderUssd2(); }
+function udel2() { uInput2 = uInput2.slice(0,-1); renderUssd2(); }
+function usend2() {
+  const k = uInput2; uInput2 = '';
+  if (uState2 === 'main') { if(k==='1')uState2='prix';else if(k==='2')uState2='boutiques';else if(k==='3')uState2='signal';else if(k==='4')uState2='alertes';else if(k==='0')uState2='quitter'; }
+  else if (uState2 === 'signal') { uState2 = k === '0' ? 'main' : 'confirme'; }
+  else { uState2 = k === '0' ? 'main' : uState2; }
+  renderUssd2();
+}
+function initUSSD2() { uState2 = 'main'; uInput2 = ''; renderUssd2(); }
+
+// ══════════════════════════════════════════════════════
+// BAR CHART (Dashboard Ministère)
+// ══════════════════════════════════════════════════════
+function initBarChart() {
+  const data = [{l:'Dakar',v:91,c:'var(--g2)'},{l:'Thiès',v:89,c:'var(--g2)'},{l:'Ziguin.',v:85,c:'var(--g2)'},{l:'Diourb.',v:82,c:'var(--gold)'},{l:'Matam',v:78,c:'var(--gold)'},{l:'Fatick',v:76,c:'var(--gold)'},{l:'St-Louis',v:71,c:'var(--red2)'},{l:'Kaolack',v:68,c:'var(--red2)'}];
+  const chart = document.getElementById('barChart');
+  if (!chart) return;
+  chart.innerHTML = '';
+  data.forEach(d => {
+    const col = document.createElement('div'); col.className = 'bar-col';
+    col.innerHTML = '<div class="bar-val">' + d.v + '%</div><div class="bar" style="height:' + (d.v*1.5) + 'px;background:' + d.c + '"></div><div class="bar-label">' + d.l + '</div>';
+    chart.appendChild(col);
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// HEAT MAP (Dashboard Ministère - AI)
+// ══════════════════════════════════════════════════════
+function initHeatMap() {
+  const grid = document.getElementById('heatGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const colors = ['#c6f6d5','#fefcbf','#fed7aa','#feb2b2'];
+  const zones = ['Pikine','Sandaga','Médina','Plateau','Guédaw.','Parcelles','Rufisque'];
+  for (let row = 0; row < zones.length; row++) {
+    for (let col = 0; col < 7; col++) {
+      const cell = document.createElement('div');
+      cell.className = 'heat-cell';
+      const r = Math.random();
+      cell.style.background = colors[r < .3 ? 0 : r < .55 ? 1 : r < .8 ? 2 : 3];
+      cell.title = zones[row];
+      grid.appendChild(cell);
+    }
+  }
+}
+
+
+// ══════════════════════════════════════════════════════
+// CLOCK (dashboards)
+// ══════════════════════════════════════════════════════
+function updateClock() {
+  const now = new Date();
+  const t = now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const d = now.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  ['dashTime','dashTime2','dashTime3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = d + ' · ' + t;
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('JavaScript chargé avec succès !');
+  initBarChart(); initHeatMap(); renderUssd('uscreen'); updateClock();
+  setInterval(updateClock, 1000);
+  
+  // Vérifier que les sections existent
+  const sections = ['probleme', 'solution', 'espaces', 'ussd-section', 'impact', 'monde'];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    console.log(`Section ${id}:`, el ? '✅ trouvée' : '❌ manquante');
+  });
+  
+  // Vérifier que les pages existent
+  const pages = ['page-landing', 'page-login', 'page-dash-ministere', 'page-dash-commercant', 'page-dash-citoyen'];
+  pages.forEach(id => {
+    const el = document.getElementById(id);
+    console.log(`Page ${id}:`, el ? '✅ trouvée' : '❌ manquante');
+  });
+  
+  // Test des fonctions de navigation
+  window.testScroll = function() {
+    console.log('Test de la fonction scrollTo');
+    scrollTo('probleme');
+  };
+  
+  window.testLogin = function() {
+    console.log('Test de la fonction showPage');
+    showPage('login');
+  };
+});
+
+</script>
+</body>
+</html>
